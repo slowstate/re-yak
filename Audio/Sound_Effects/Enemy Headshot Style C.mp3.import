@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbnhh1hadmth1"
+path="res://.godot/imported/Enemy Headshot Style C.mp3-6218323866aafea9b964750ff727953b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound_Effects/Enemy Headshot Style C.mp3"
+dest_files=["res://.godot/imported/Enemy Headshot Style C.mp3-6218323866aafea9b964750ff727953b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

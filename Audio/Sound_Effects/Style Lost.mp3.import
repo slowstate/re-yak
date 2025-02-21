@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhh0jrx20iwnr"
+path="res://.godot/imported/Style Lost.mp3-628208765f0b853523c3074a52441363.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound_Effects/Style Lost.mp3"
+dest_files=["res://.godot/imported/Style Lost.mp3-628208765f0b853523c3074a52441363.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
