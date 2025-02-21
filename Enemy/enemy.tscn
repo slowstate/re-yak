@@ -19,8 +19,8 @@ height = 140.0
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
-max_contacts_reported = 1
 contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_uet12")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -109,8 +109,8 @@ script = ExtResource("6_lkpsf")
 [connection signal="area_entered" from="HeadHitbox" to="." method="_on_head_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_state_timer_timeout"]
 [connection signal="timeout" from="RoamTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_roam_timer_timeout"]
 [connection signal="timeout" from="ChasingPlayerTimer" to="EnemyStateMachine/ChasingPlayer" method="_on_chasing_player_timer_timeout"]

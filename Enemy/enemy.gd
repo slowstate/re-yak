@@ -68,4 +68,3 @@ func _on_chasing_player_moving(is_moving):
 
 func _on_chasing_player_attack():
 	player_hit.emit()
-

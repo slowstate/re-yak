@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var player_state_machine = $PlayerStateMachine
 @onready var gun_cooldown_timer = $GunCooldownTimer
 
-@export var CURRENT_STATE: State
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -49,9 +48,6 @@ func shoot_bullet():
 	can_shoot = false
 	gun_cooldown_timer.wait_time = 0.2
 	gun_cooldown_timer.start()
-
-func _on_player_state_machine_update_state(state):
-	CURRENT_STATE = state
 
 
 func _on_gun_cooldown_timer_timeout():

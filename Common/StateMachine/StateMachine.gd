@@ -3,7 +3,6 @@ class_name StateMachine
 extends Node
 
 @export var CURRENT_STATE: State
-signal update_state(State)
 var states: Dictionary = {}
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +30,5 @@ func on_child_transition(new_state_name: StringName) -> void:
 			CURRENT_STATE.exit()
 			new_state.enter()
 			CURRENT_STATE = new_state
-			update_state.emit(CURRENT_STATE)
 		else:
 			push_warning("State does not exist")

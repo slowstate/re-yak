@@ -41,4 +41,3 @@ script = ExtResource("4_8qiql")
 script = ExtResource("5_01ecb")
 
 [connection signal="timeout" from="GunCooldownTimer" to="." method="_on_gun_cooldown_timer_timeout"]
-[connection signal="update_state" from="PlayerStateMachine" to="." method="_on_player_state_machine_update_state"]
