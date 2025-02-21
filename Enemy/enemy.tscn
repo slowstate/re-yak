@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://br0283go6r254"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_uet12"]
+[ext_resource type="Texture2D" uid="uid://unvetjk5gvi1" path="res://Enemy/Yakuza_Sprite_Ver1.webp" id="2_lt8rw"]
+[ext_resource type="Script" path="res://Common/StateMachine/StateMachine.gd" id="3_l57dc"]
+[ext_resource type="Script" path="res://Enemy/Idle.gd" id="4_d2362"]
+[ext_resource type="Script" path="res://Enemy/Roaming.gd" id="5_qmmml"]
+[ext_resource type="Script" path="res://Enemy/ChasingPlayer.gd" id="6_lkpsf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xms"]
+size = Vector2(82, 166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfw35"]
+size = Vector2(74, 166)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 2
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_uet12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500003, 0.500003)
+scale = Vector2(0.460938, 0.460938)
+texture = ExtResource("2_lt8rw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_q0xms")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_vfw35")
+
+[node name="PlayerDetector1" type="RayCast2D" parent="."]
+target_position = Vector2(650, 0)
+collision_mask = 8
+
+[node name="PlayerDetector2" type="RayCast2D" parent="."]
+target_position = Vector2(630, -50)
+collision_mask = 8
+
+[node name="PlayerDetector3" type="RayCast2D" parent="."]
+target_position = Vector2(610, -100)
+collision_mask = 8
+
+[node name="BackDetector1" type="RayCast2D" parent="."]
+target_position = Vector2(-100, 0)
+collision_mask = 8
+
+[node name="BackDetector2" type="RayCast2D" parent="."]
+target_position = Vector2(-80, -80)
+collision_mask = 8
+
+[node name="AttackDetector1" type="RayCast2D" parent="."]
+target_position = Vector2(50, 0)
+collision_mask = 8
+
+[node name="AttackDetector2" type="RayCast2D" parent="."]
+target_position = Vector2(40, -60)
+collision_mask = 8
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RoamTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ChasingPlayerTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("3_l57dc")
+CURRENT_STATE = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_d2362")
+
+[node name="EnemyRoaming" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_qmmml")
+
+[node name="ChasingPlayer" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_lkpsf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_state_timer_timeout"]
+[connection signal="timeout" from="RoamTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_roam_timer_timeout"]
+[connection signal="timeout" from="ChasingPlayerTimer" to="EnemyStateMachine/ChasingPlayer" method="_on_chasing_player_timer_timeout"]
+[connection signal="moving" from="EnemyStateMachine/EnemyIdle" to="." method="_on_enemy_idle_moving"]
+[connection signal="look_right" from="EnemyStateMachine/EnemyRoaming" to="." method="_on_enemy_roaming_look_right"]
+[connection signal="moving" from="EnemyStateMachine/EnemyRoaming" to="." method="_on_enemy_roaming_moving"]
+[connection signal="attack" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_attack"]
+[connection signal="look_right" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_look_right"]
+[connection signal="moving" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_moving"]

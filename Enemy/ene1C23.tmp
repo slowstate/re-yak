@@ -1,0 +1,81 @@
+[gd_scene load_steps=9 format=3 uid="uid://br0283go6r254"]
+
+[ext_resource type="Texture2D" uid="uid://cmm8skq3s5f5k" path="res://icon.svg" id="1_g2gp6"]
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_uet12"]
+[ext_resource type="Script" path="res://Common/StateMachine/StateMachine.gd" id="3_l57dc"]
+[ext_resource type="Script" path="res://Enemy/Idle.gd" id="4_d2362"]
+[ext_resource type="Script" path="res://Enemy/Roaming.gd" id="5_qmmml"]
+[ext_resource type="Script" path="res://Enemy/ChasingPlayer.gd" id="6_lkpsf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_372kl"]
+radius = 18.0
+height = 60.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfw35"]
+size = Vector2(59, 59)
+
+[node name="Enemy" type="RigidBody2D"]
+collision_layer = 2
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_uet12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.500003, 0.500003)
+scale = Vector2(0.460938, 0.460938)
+texture = ExtResource("1_g2gp6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(27, -1.90735e-06)
+scale = Vector2(0.359375, 0.078125)
+texture = ExtResource("1_g2gp6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_372kl")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_vfw35")
+
+[node name="PlayerDetector1" type="RayCast2D" parent="."]
+target_position = Vector2(641, 0)
+collision_mask = 8
+
+[node name="PlayerDetector2" type="RayCast2D" parent="."]
+target_position = Vector2(635, -48)
+
+[node name="PlayerDetector3" type="RayCast2D" parent="."]
+target_position = Vector2(614, -93)
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RoamTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("3_l57dc")
+CURRENT_STATE = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("4_d2362")
+
+[node name="EnemyRoaming" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("5_qmmml")
+
+[node name="ChasingPlayer" type="Node" parent="EnemyStateMachine"]
+script = ExtResource("6_lkpsf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_state_timer_timeout"]
+[connection signal="timeout" from="RoamTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_roam_timer_timeout"]
+[connection signal="set_direction" from="EnemyStateMachine/EnemyRoaming" to="." method="_on_enemy_roaming_set_direction"]

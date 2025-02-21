@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdad6tsjxk71q"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_l3gyo"]
+[ext_resource type="PackedScene" uid="uid://c28jmx1c3n5d6" path="res://arena.tscn" id="2_r7skv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_l3gyo")
+
+[node name="MainMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Arena" parent="." instance=ExtResource("2_r7skv")]

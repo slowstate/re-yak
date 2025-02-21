@@ -1,0 +1,72 @@
+[gd_scene load_steps=7 format=3 uid="uid://c28jmx1c3n5d6"]
+
+[ext_resource type="PackedScene" uid="uid://cynexbpvvg7vt" path="res://Player/player.tscn" id="1_4p8dc"]
+[ext_resource type="Script" path="res://arena.gd" id="1_snrlg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgnk6"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0bskt"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ysb0"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m0j5o"]
+normal = Vector2(-1, 0)
+
+[node name="Arena" type="Node2D"]
+script = ExtResource("1_snrlg")
+
+[node name="Player" parent="." instance=ExtResource("1_4p8dc")]
+position = Vector2(539, 327)
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="WorldBoundaries" type="Node2D" parent="."]
+position = Vector2(531, 648)
+
+[node name="Lower" type="StaticBody2D" parent="WorldBoundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Lower"]
+shape = SubResource("WorldBoundaryShape2D_cgnk6")
+
+[node name="Left" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(-531, -323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Left"]
+shape = SubResource("WorldBoundaryShape2D_0bskt")
+
+[node name="Upper" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(-1, -649)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Upper"]
+shape = SubResource("WorldBoundaryShape2D_1ysb0")
+
+[node name="Right" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(621, -325)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Right"]
+shape = SubResource("WorldBoundaryShape2D_m0j5o")
+
+[node name="TotalScoreLabel" type="Label" parent="."]
+offset_left = 486.0
+offset_top = 2.0
+offset_right = 599.0
+offset_bottom = 42.0
+text = "Total Score: 0"
+
+[node name="StyleScoreLabel" type="Label" parent="."]
+offset_left = 857.0
+offset_top = 2.0
+offset_right = 968.0
+offset_bottom = 42.0
+text = "Style Score: 0"
+
+[node name="StyleLabel" type="Label" parent="."]
+offset_left = 871.0
+offset_top = 29.0
+offset_right = 928.0
+offset_bottom = 52.0
+text = "Style: C"
