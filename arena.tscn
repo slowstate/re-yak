@@ -24,6 +24,12 @@ position = Vector2(539, 327)
 wait_time = 0.5
 one_shot = true
 
+[node name="KillsInQuickSuccessionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ComboLabelTimer" type="Timer" parent="."]
+
 [node name="WorldBoundaries" type="Node2D" parent="."]
 position = Vector2(531, 648)
 
@@ -65,8 +71,19 @@ offset_bottom = 42.0
 text = "Style Score: 0"
 
 [node name="StyleLabel" type="Label" parent="."]
-offset_left = 871.0
-offset_top = 29.0
-offset_right = 928.0
-offset_bottom = 52.0
+offset_left = 1008.0
+offset_top = 73.0
+offset_right = 1134.0
+offset_bottom = 123.0
+theme_override_font_sizes/font_size = 36
 text = "Style: C"
+
+[node name="ComboLabel" type="Label" parent="."]
+offset_left = 1031.0
+offset_top = 127.0
+offset_right = 1124.0
+offset_bottom = 228.0
+horizontal_alignment = 3
+
+[connection signal="timeout" from="KillsInQuickSuccessionTimer" to="." method="_on_kills_in_quick_succession_timer_timeout"]
+[connection signal="timeout" from="ComboLabelTimer" to="." method="_on_combo_label_timer_timeout"]

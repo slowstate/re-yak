@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://br0283go6r254"]
+[gd_scene load_steps=10 format=3 uid="uid://br0283go6r254"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_uet12"]
 [ext_resource type="Texture2D" uid="uid://unvetjk5gvi1" path="res://Enemy/Yakuza_Sprite_Ver1.webp" id="2_lt8rw"]
@@ -10,8 +10,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xms"]
 size = Vector2(82, 166)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfw35"]
-size = Vector2(74, 166)
+[sub_resource type="CircleShape2D" id="CircleShape2D_iy2cn"]
+radius = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4t632"]
+radius = 41.0
+height = 140.0
 
 [node name="Enemy" type="RigidBody2D"]
 collision_layer = 2
@@ -25,16 +29,25 @@ scale = Vector2(0.460938, 0.460938)
 texture = ExtResource("2_lt8rw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_q0xms")
+
+[node name="HeadHitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox"]
+position = Vector2(-3, -69)
+shape = SubResource("CircleShape2D_iy2cn")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-4, 0)
-shape = SubResource("RectangleShape2D_vfw35")
+position = Vector2(-3, 13)
+shape = SubResource("CapsuleShape2D_4t632")
 
 [node name="PlayerDetector1" type="RayCast2D" parent="."]
 target_position = Vector2(650, 0)
@@ -93,6 +106,7 @@ script = ExtResource("6_lkpsf")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="area_entered" from="HeadHitbox" to="." method="_on_head_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]

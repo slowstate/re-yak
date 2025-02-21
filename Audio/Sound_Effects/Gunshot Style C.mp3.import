@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://baxkfn87ciqnk"
+path="res://.godot/imported/Gunshot Style C.mp3-748de17e2397338e46e7faae7fa8dc15.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound_Effects/Gunshot Style C.mp3"
+dest_files=["res://.godot/imported/Gunshot Style C.mp3-748de17e2397338e46e7faae7fa8dc15.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

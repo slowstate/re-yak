@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmyweqiodhl5q"]
+[gd_scene load_steps=5 format=3 uid="uid://dmyweqiodhl5q"]
 
 [ext_resource type="Script" path="res://Player/Bullet/bullet.gd" id="1_cpx4r"]
 [ext_resource type="Texture2D" uid="uid://cmm8skq3s5f5k" path="res://icon.svg" id="1_jp2xt"]
@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77wyi"]
 size = Vector2(10, 10)
 
-[node name="Bullet" type="Area2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_2gapr"]
+
+[node name="Bullet" type="RigidBody2D"]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_cpx4r")
@@ -16,7 +18,17 @@ position = Vector2(0, 2.98023e-07)
 scale = Vector2(0.078125, 0.078125)
 texture = ExtResource("1_jp2xt")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_77wyi")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2gapr")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]

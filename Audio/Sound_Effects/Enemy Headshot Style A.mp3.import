@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c47q3pn3a5xi5"
+path="res://.godot/imported/Enemy Headshot Style A.mp3-170f2e05f4c404e542e12065e7c1c48b.mp3str"
+
+[deps]
+
+source_file="res://Audio/Sound_Effects/Enemy Headshot Style A.mp3"
+dest_files=["res://.godot/imported/Enemy Headshot Style A.mp3-170f2e05f4c404e542e12065e7c1c48b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
