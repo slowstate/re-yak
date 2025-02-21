@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://br0283go6r254"]
+[gd_scene load_steps=12 format=3 uid="uid://br0283go6r254"]
 
 [ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_uet12"]
 [ext_resource type="Texture2D" uid="uid://unvetjk5gvi1" path="res://Enemy/Yakuza_Sprite_Ver1.webp" id="2_lt8rw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Enemy/Idle.gd" id="4_d2362"]
 [ext_resource type="Script" path="res://Enemy/Roaming.gd" id="5_qmmml"]
 [ext_resource type="Script" path="res://Enemy/ChasingPlayer.gd" id="6_lkpsf"]
+[ext_resource type="AudioStream" uid="uid://bbnhh1hadmth1" path="res://Audio/Sound_Effects/Enemy Headshot Style C.mp3" id="7_ov2kw"]
+[ext_resource type="AudioStream" uid="uid://bfstopg5y8fbf" path="res://Audio/Sound_Effects/Enemy Hit.mp3" id="8_jv5kc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xms"]
 size = Vector2(82, 166)
@@ -104,13 +106,19 @@ script = ExtResource("5_qmmml")
 [node name="ChasingPlayer" type="Node" parent="EnemyStateMachine"]
 script = ExtResource("6_lkpsf")
 
+[node name="EnemyHeadshotStyleC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ov2kw")
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jv5kc")
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="area_entered" from="HeadHitbox" to="." method="_on_head_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
+[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_state_timer_timeout"]
 [connection signal="timeout" from="RoamTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_roam_timer_timeout"]
 [connection signal="timeout" from="ChasingPlayerTimer" to="EnemyStateMachine/ChasingPlayer" method="_on_chasing_player_timer_timeout"]

@@ -11,6 +11,11 @@ extends RigidBody2D
 @onready var attack_detector_1 = $AttackDetector1
 @onready var attack_detector_2 = $AttackDetector2
 
+@onready var enemy_headshot_style_c: AudioStreamPlayer = $EnemyHeadshotStyleC
+@onready var enemy_hit: AudioStreamPlayer = $EnemyHit
+
+
+
 signal enemy_killed(headshot: bool)
 signal player_hit
 
@@ -32,10 +37,12 @@ func _on_body_entered(body):
 		queue_free()
 
 func _on_head_hitbox_area_entered(area):
+	enemy_headshot_style_c.play()
 	enemy_killed.emit(true)
 	queue_free()
 	
 func _on_hitbox_area_entered(area):
+	enemy_hit.play()
 	enemy_killed.emit(false)
 	queue_free()
 

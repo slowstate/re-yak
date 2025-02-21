@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cynexbpvvg7vt"]
+[gd_scene load_steps=9 format=3 uid="uid://cynexbpvvg7vt"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_f6fhf"]
 [ext_resource type="Texture2D" uid="uid://bj3wft6gikvfh" path="res://Player/dfklnyb-8779807f-9098-409c-b63c-ad76d28e62b5.png" id="2_2723s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Player/Idle.gd" id="3_rvt72"]
 [ext_resource type="Script" path="res://Player/Running.gd" id="4_8qiql"]
 [ext_resource type="Script" path="res://Player/Jumping.gd" id="5_01ecb"]
+[ext_resource type="AudioStream" uid="uid://61ienfstkdxj" path="res://Audio/Sound_Effects/Gunshot Style C.mp3" id="7_xb5wg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_raoxj"]
 size = Vector2(68, 159)
@@ -39,5 +40,9 @@ script = ExtResource("4_8qiql")
 
 [node name="Jumping" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("5_01ecb")
+
+[node name="GunshotStyleC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xb5wg")
+volume_db = -80.0
 
 [connection signal="timeout" from="GunCooldownTimer" to="." method="_on_gun_cooldown_timer_timeout"]

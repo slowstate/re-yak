@@ -2,6 +2,11 @@ extends Node2D
 
 var enemy_scene = preload("res://Enemy/enemy.tscn")
 
+@onready var revenge_style_c: AudioStreamPlayer = $Audio/Music/RevengeStyleC
+@onready var revenge_style_b: AudioStreamPlayer = $Audio/Music/RevengeStyleB
+@onready var revenge_style_a: AudioStreamPlayer = $Audio/Music/RevengeStyleA
+
+
 @onready var player = $Player
 @onready var enemy_spawn_timer = $"EnemySpawnTimer"
 @onready var kills_in_quick_succession_timer = $KillsInQuickSuccessionTimer
@@ -12,12 +17,17 @@ var enemy_count = 0
 @onready var total_score_label = $"TotalScoreLabel"
 @onready var style_score_label = $"StyleScoreLabel"
 @onready var style_label = $StyleLabel
+@onready var style_upgrade_1: AudioStreamPlayer = $"Audio/SoundEffects/StyleUpgrade1"
+@onready var style_upgrade_2: AudioStreamPlayer = $"Audio/SoundEffects/StyleUpgrade2"
+@onready var style_lost: AudioStreamPlayer = $"Audio/SoundEffects/StyleLost"
 @onready var combo_label = $ComboLabel
 @onready var combo_label_timer = $ComboLabelTimer
+
 
 var total_score = 0
 var style_score = 0
 var style = Style.C
+var style_string = "C"
 
 enum Style {C, B, A}
 
@@ -74,22 +84,33 @@ func on_enemy_killed(headshot: bool):
 
 func on_player_hit():
 	style_score = 0
+	style_lost.play()
 
 
 func update_style():
-	var style_string = "C"
-	if style_score < 5:
+	if style_score < 20 && style != Style.C:
 		style = Style.C
 		style_string = "C"
 		enemy_limit = 2
-	elif style_score >= 5 && style_score < 15:
+		revenge_style_c.volume_db = -10
+		revenge_style_b.volume_db = -80
+		revenge_style_a.volume_db = -80
+	elif style_score >= 20 && style_score < 50 && style != Style.B:
 		style = Style.B
 		style_string = "B"
 		enemy_limit = 3
-	elif style_score >= 15:
+		revenge_style_c.volume_db = -80
+		revenge_style_b.volume_db = -8
+		revenge_style_a.volume_db = -80
+		style_upgrade_1.play()
+	elif style_score >= 50 && style != Style.A:
 		style = Style.A
 		style_string = "A"
 		enemy_limit = 5
+		revenge_style_c.volume_db = -80
+		revenge_style_b.volume_db = -80
+		revenge_style_a.volume_db = -7
+		style_upgrade_2.play()
 	
 	style_score_label.text = "Style Score: " + str(style_score)
 	total_score_label.text = "Total Score: " + str(total_score)

@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Gunshot Style C.mp3-748de17e2397338e46e7faae7
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
