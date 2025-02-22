@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cynexbpvvg7vt" path="res://Player/player.tscn" id="1_4p8dc"]
 [ext_resource type="Script" path="res://arena.gd" id="1_snrlg"]
-[ext_resource type="AudioStream" uid="uid://b6lncdtjy2f8j" path="res://Audio/Music/Revenge_Style_C.wav" id="3_pioil"]
-[ext_resource type="AudioStream" uid="uid://b24rtrl6t7c31" path="res://Audio/Music/Revenge_Style_B.wav" id="4_or6y6"]
-[ext_resource type="AudioStream" uid="uid://q7ajjx2v3ps8" path="res://Audio/Music/Revenge_Style_A.wav" id="5_lcome"]
+[ext_resource type="AudioStream" uid="uid://b6lncdtjy2f8j" path="res://Audio/Music/Pressure_Style_C.wav" id="3_pioil"]
+[ext_resource type="AudioStream" uid="uid://b24rtrl6t7c31" path="res://Audio/Music/Pressure_Style_B.wav" id="4_or6y6"]
+[ext_resource type="AudioStream" uid="uid://q7ajjx2v3ps8" path="res://Audio/Music/Pressure_Style_A.wav" id="5_lcome"]
 [ext_resource type="AudioStream" uid="uid://cd3xfrwiuogrw" path="res://Audio/Sound_Effects/Style Upgrade 1.wav" id="6_7uime"]
 [ext_resource type="AudioStream" uid="uid://cgniccucgu1bp" path="res://Audio/Sound_Effects/Style Upgrade 2.wav" id="7_ecj2k"]
 [ext_resource type="AudioStream" uid="uid://bhh0jrx20iwnr" path="res://Audio/Sound_Effects/Style Lost.mp3" id="8_q5fl0"]
@@ -95,17 +95,17 @@ horizontal_alignment = 3
 
 [node name="Music" type="Node" parent="Audio"]
 
-[node name="RevengeStyleC" type="AudioStreamPlayer" parent="Audio/Music"]
+[node name="PressureStyleC" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("3_pioil")
 volume_db = -10.0
 autoplay = true
 
-[node name="RevengeStyleB" type="AudioStreamPlayer" parent="Audio/Music"]
+[node name="PressureStyleB" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("4_or6y6")
 volume_db = -80.0
 autoplay = true
 
-[node name="RevengeStyleA" type="AudioStreamPlayer" parent="Audio/Music"]
+[node name="PressureStyleA" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("5_lcome")
 volume_db = -80.0
 autoplay = true

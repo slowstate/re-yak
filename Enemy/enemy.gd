@@ -42,10 +42,10 @@ func _on_head_hitbox_area_entered(area):
 	queue_free()
 	
 func _on_hitbox_area_entered(area):
-	enemy_hit.play()
 	enemy_killed.emit(false)
+	enemy_hit.play()
 	queue_free()
-
+	
 func _on_enemy_roaming_look_right(look_right):
 	looking_right(look_right)
 func _on_chasing_player_look_right(look_right):
