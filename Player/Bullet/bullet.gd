@@ -9,7 +9,6 @@ func _ready():
 
 func _physics_process(delta):
 	linear_velocity = DIRECTION.normalized() * SPEED
-	#position+= DIRECTION.normalized() * SPEED * delta #// position.x+=SPEED * delta
 
 func set_direction(direction : Vector2):
 	DIRECTION = direction
