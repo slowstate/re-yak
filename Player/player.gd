@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
 
 
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -18,7 +20,8 @@ var can_shoot = true
 
 func _ready():
 	Global.player = self
-	animation_player.play("Run")
+	animation_player.play("Run_Right")
+	
 
 func _physics_process(delta):
 	# Add the gravity.
