@@ -97,32 +97,27 @@ horizontal_alignment = 3
 
 [node name="RevengeStyleC" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("3_pioil")
-volume_db = -10.0
+volume_db = -80.0
 autoplay = true
 
 [node name="RevengeStyleB" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("4_or6y6")
-volume_db = -80.0
 autoplay = true
 
 [node name="RevengeStyleA" type="AudioStreamPlayer" parent="Audio/Music"]
 stream = ExtResource("5_lcome")
-volume_db = -80.0
 autoplay = true
 
-[node name="SoundEffects" type="Node" parent="Audio"]
+[node name="Sound Effects" type="Node" parent="Audio"]
 
-[node name="StyleUpgrade1" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+[node name="StyleUpgrade1" type="AudioStreamPlayer" parent="Audio/Sound Effects"]
 stream = ExtResource("6_7uime")
-volume_db = -10.0
 
-[node name="StyleUpgrade2" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+[node name="Style Upgrade2" type="AudioStreamPlayer" parent="Audio/Sound Effects"]
 stream = ExtResource("7_ecj2k")
-volume_db = -10.0
 
-[node name="StyleLost" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+[node name="StyleLost" type="AudioStreamPlayer" parent="Audio/Sound Effects"]
 stream = ExtResource("8_q5fl0")
-volume_db = -10.0
 
 [connection signal="timeout" from="KillsInQuickSuccessionTimer" to="." method="_on_kills_in_quick_succession_timer_timeout"]
 [connection signal="timeout" from="ComboLabelTimer" to="." method="_on_combo_label_timer_timeout"]

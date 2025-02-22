@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var player_state_machine = $PlayerStateMachine
 @onready var gun_cooldown_timer = $GunCooldownTimer
+@onready var gunshot_style_c: AudioStreamPlayer = $GunshotStyleC
+
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -24,6 +26,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("player_left_click"):
 		if can_shoot:
 			shoot_bullet()
+			gunshot_style_c.play()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -46,7 +49,7 @@ func shoot_bullet():
 	get_tree().root.get_child(0).add_child(shot_bullet)
 	
 	can_shoot = false
-	gun_cooldown_timer.wait_time = 0.2
+	gun_cooldown_timer.wait_time = 0.5
 	gun_cooldown_timer.start()
 
 
