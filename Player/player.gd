@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var player_state_machine = $PlayerStateMachine
 @onready var gun_cooldown_timer = $GunCooldownTimer
 @onready var gunshot_style_c: AudioStreamPlayer = $GunshotStyleC
+@onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
 
 
 const SPEED = 300.0
@@ -17,6 +18,7 @@ var can_shoot = true
 
 func _ready():
 	Global.player = self
+	animation_player.play("Run")
 
 func _physics_process(delta):
 	# Add the gravity.
