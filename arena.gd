@@ -2,9 +2,9 @@ extends Node2D
 
 var enemy_scene = preload("res://Enemy/enemy.tscn")
 
-@onready var revenge_style_c: AudioStreamPlayer = $Audio/Music/RevengeStyleC
-@onready var revenge_style_b: AudioStreamPlayer = $Audio/Music/RevengeStyleB
-@onready var revenge_style_a: AudioStreamPlayer = $Audio/Music/RevengeStyleA
+@onready var pressure_style_c: AudioStreamPlayer = $Audio/Music/PressureStyleC
+@onready var pressure_style_b: AudioStreamPlayer = $Audio/Music/PressureStyleB
+@onready var pressure_style_a: AudioStreamPlayer = $Audio/Music/PressureStyleA
 
 
 @onready var player = $Player
@@ -92,24 +92,24 @@ func update_style():
 		style = Style.C
 		style_string = "C"
 		enemy_limit = 2
-		revenge_style_c.volume_db = -10
-		revenge_style_b.volume_db = -80
-		revenge_style_a.volume_db = -80
+		pressure_style_c.volume_db = -10
+		pressure_style_b.volume_db = -80
+		pressure_style_a.volume_db = -80
 	elif style_score >= 20 && style_score < 50 && style != Style.B:
 		style = Style.B
 		style_string = "B"
 		enemy_limit = 3
-		revenge_style_c.volume_db = -80
-		revenge_style_b.volume_db = -8
-		revenge_style_a.volume_db = -80
+		pressure_style_c.volume_db = -80
+		pressure_style_b.volume_db = -8
+		pressure_style_a.volume_db = -80
 		style_upgrade_1.play()
 	elif style_score >= 50 && style != Style.A:
 		style = Style.A
 		style_string = "A"
 		enemy_limit = 5
-		revenge_style_c.volume_db = -80
-		revenge_style_b.volume_db = -80
-		revenge_style_a.volume_db = -7
+		pressure_style_c.volume_db = -80
+		pressure_style_b.volume_db = -80
+		pressure_style_a.volume_db = -7
 		style_upgrade_2.play()
 	
 	style_score_label.text = "Style Score: " + str(style_score)

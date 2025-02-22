@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://q7ajjx2v3ps8"
-path="res://.godot/imported/Revenge_Style_A.wav-2b51c2be8c0d16ebc873b8bf5191aa20.sample"
+path="res://.godot/imported/Pressure_Style_A.wav-39b3a8ec36eaf85c4472bcf448a34f33.sample"
 
 [deps]
 
-source_file="res://Audio/Music/Revenge_Style_A.wav"
-dest_files=["res://.godot/imported/Revenge_Style_A.wav-2b51c2be8c0d16ebc873b8bf5191aa20.sample"]
+source_file="res://Audio/Music/Pressure_Style_A.wav"
+dest_files=["res://.godot/imported/Pressure_Style_A.wav-39b3a8ec36eaf85c4472bcf448a34f33.sample"]
 
 [params]
 
