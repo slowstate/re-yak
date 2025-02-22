@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cynexbpvvg7vt"]
+[gd_scene load_steps=10 format=3 uid="uid://cynexbpvvg7vt"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_f6fhf"]
 [ext_resource type="Texture2D" uid="uid://bj3wft6gikvfh" path="res://Player/dfklnyb-8779807f-9098-409c-b63c-ad76d28e62b5.png" id="2_2723s"]
 [ext_resource type="Script" path="res://Common/StateMachine/StateMachine.gd" id="2_tvsun"]
+[ext_resource type="Texture2D" uid="uid://38o33mgga74y" path="res://Player/Crosshair.png" id="3_rteal"]
 [ext_resource type="Script" path="res://Player/Idle.gd" id="3_rvt72"]
+[ext_resource type="Script" path="res://Player/crosshair.gd" id="4_5bptn"]
 [ext_resource type="Script" path="res://Player/Running.gd" id="4_8qiql"]
 [ext_resource type="Script" path="res://Player/Jumping.gd" id="5_01ecb"]
 
@@ -22,6 +24,11 @@ texture = ExtResource("2_2723s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_raoxj")
+
+[node name="Crosshair" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_rteal")
+script = ExtResource("4_5bptn")
 
 [node name="GunCooldownTimer" type="Timer" parent="."]
 wait_time = 0.2
