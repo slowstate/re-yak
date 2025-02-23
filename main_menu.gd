@@ -27,7 +27,6 @@ func _ready() -> void:
 	just_a_chill_guy.play()
 	start_menu.visible = true
 	story.visible = false
-	print("hi")
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
