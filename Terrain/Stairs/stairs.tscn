@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dq2bygl23emws"]
+
+[ext_resource type="Texture2D" uid="uid://b3fx2n4721w2p" path="res://Images/Arena.png" id="1_8luna"]
+
+[node name="Stairs" type="StaticBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(296, 616, 214, 516, 173, 516, 173, 616)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584, 324.25)
+scale = Vector2(0.466163, 0.466163)
+texture = ExtResource("1_8luna")

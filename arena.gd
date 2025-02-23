@@ -42,7 +42,6 @@ func _process(delta):
 		enemy_count+=1
 		spawn_enemy()
 
-	
 func spawn_enemy():
 	var new_enemy = enemy_scene.instantiate()
 	new_enemy.enemy_killed.connect(on_enemy_killed)

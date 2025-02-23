@@ -28,7 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if moving: position += DIRECTION.normalized() * SPEED * delta
+	if moving: linear_velocity.x = DIRECTION.x * SPEED #position += DIRECTIOzN.normalized() * SPEED * delta
 
 func _on_body_entered(body):
 	if body.collision_layer == 4:
