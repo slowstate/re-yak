@@ -70,7 +70,7 @@ scale = Vector2(0.466, 0.466)
 texture = ExtResource("2_dbrti")
 
 [node name="Player" parent="." instance=ExtResource("1_4p8dc")]
-position = Vector2(538, 545)
+position = Vector2(561, 554)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -328,5 +328,11 @@ stream = ExtResource("11_f26tc")
 [node name="EnemyHeadshotStyleA" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
 stream = ExtResource("12_gxbid")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 180.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="KillsInQuickSuccessionTimer" to="." method="_on_kills_in_quick_succession_timer_timeout"]
 [connection signal="timeout" from="ComboLabelTimer" to="." method="_on_combo_label_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -36,7 +36,6 @@ var spawn_points = [Vector2(285, 150), Vector2(870, 150), Vector2(565, 320), Vec
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.style = Global.Style.C
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -134,3 +133,8 @@ func update_style():
 
 func _on_combo_label_timer_timeout():
 	combo_label.text = ""
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+	
