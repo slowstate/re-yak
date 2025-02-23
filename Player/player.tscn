@@ -1929,7 +1929,7 @@ offset = Vector2(-96, 24)
 
 [node name="RightLowerArm" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
 position = Vector2(-508.346, 374.011)
-rotation = -0.42708
+rotation = -0.427081
 scale = Vector2(0.999989, 0.999989)
 texture = ExtResource("18_yhbdn")
 offset = Vector2(-88, 8)

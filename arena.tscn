@@ -1,10 +1,11 @@
-[gd_scene load_steps=42 format=3 uid="uid://c28jmx1c3n5d6"]
+[gd_scene load_steps=43 format=3 uid="uid://c28jmx1c3n5d6"]
 
 [ext_resource type="PackedScene" uid="uid://cynexbpvvg7vt" path="res://Player/player.tscn" id="1_4p8dc"]
 [ext_resource type="Script" path="res://arena.gd" id="1_snrlg"]
 [ext_resource type="Texture2D" uid="uid://c6dfhts2auu85" path="res://Images/Background/BG.png" id="2_3ptpv"]
 [ext_resource type="Texture2D" uid="uid://c1051i1i1qbx4" path="res://Images/BG_Complete.png" id="2_dbrti"]
 [ext_resource type="AudioStream" uid="uid://b6lncdtjy2f8j" path="res://Audio/Music/Pressure_Style_C.wav" id="3_pioil"]
+[ext_resource type="Texture2D" uid="uid://cmm8skq3s5f5k" path="res://icon.svg" id="4_cv5oh"]
 [ext_resource type="AudioStream" uid="uid://b24rtrl6t7c31" path="res://Audio/Music/Pressure_Style_B.wav" id="4_or6y6"]
 [ext_resource type="PackedScene" uid="uid://dq2bygl23emws" path="res://Terrain/Stairs/stairs.tscn" id="4_yewtv"]
 [ext_resource type="Texture2D" uid="uid://mninhfklxjs7" path="res://Images/Background/Door top left.png" id="5_dek6j"]
@@ -64,9 +65,16 @@ scale = Vector2(0.466163, 0.466163)
 texture = ExtResource("2_3ptpv")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(584, 324.25)
 scale = Vector2(0.466, 0.466)
 texture = ExtResource("2_dbrti")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(795, 505)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("4_cv5oh")
 
 [node name="Player" parent="." instance=ExtResource("1_4p8dc")]
 position = Vector2(538, 545)
@@ -254,6 +262,7 @@ offset_bottom = 42.0
 text = "Total Score: 0"
 
 [node name="StyleScoreLabel" type="Label" parent="."]
+visible = false
 offset_left = 857.0
 offset_top = 2.0
 offset_right = 968.0
@@ -261,11 +270,11 @@ offset_bottom = 42.0
 text = "Style Score: 0"
 
 [node name="StyleLabel" type="Label" parent="."]
-offset_left = 1008.0
+offset_left = 1025.0
 offset_top = 73.0
-offset_right = 1134.0
+offset_right = 1151.0
 offset_bottom = 123.0
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 33
 text = "Style: C"
 
 [node name="ComboLabel" type="Label" parent="."]

@@ -31,6 +31,8 @@ var total_score = 0
 var style_score = 0
 var style_string = "C"
 
+var spawn_points = [Vector2(285, 150), Vector2(870, 150), Vector2(565, 320), Vector2(350, 505), Vector2(795, 505)]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.style = Global.Style.C
@@ -47,7 +49,7 @@ func spawn_enemy():
 	var new_enemy = enemy_scene.instantiate()
 	new_enemy.enemy_killed.connect(on_enemy_killed)
 	new_enemy.player_hit.connect(on_player_hit)
-	new_enemy.position = Vector2(randi_range(0, 1152),0)
+	new_enemy.position = spawn_points.pick_random()#Vector2(randi_range(0, 1152),0)
 	new_enemy.add_to_group("enemies")
 	get_tree().root.get_child(0).add_child(new_enemy)
 

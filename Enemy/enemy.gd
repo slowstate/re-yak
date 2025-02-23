@@ -18,7 +18,7 @@ extends RigidBody2D
 signal enemy_killed(headshot: bool)
 signal player_hit
 
-var SPEED = 100
+var SPEED = 150
 var DIRECTION = Vector2(1,0)
 var moving = false
 
