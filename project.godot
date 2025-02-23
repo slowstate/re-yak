@@ -58,3 +58,7 @@ player_move_down={
 2d_physics/layer_3="Bullet"
 2d_physics/layer_4="Player"
 2d_physics/layer_5="VerticalPath"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

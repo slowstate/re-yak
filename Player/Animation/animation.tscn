@@ -1823,23 +1823,23 @@ scale = Vector2(-1, 1)
 [node name="Body" type="Node2D" parent="CharacterContainer"]
 
 [node name="RightFoot" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-245.548, 1045.58)
+position = Vector2(-245.549, 1045.58)
 rotation = -1.74097
-scale = Vector2(0.999984, -0.999907)
+scale = Vector2(0.999912, -0.999909)
 texture = ExtResource("1_2af4b")
 offset = Vector2(-40, -48)
 
 [node name="RightShin" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(7.61342, 1010.37)
-rotation = -2.06045
-scale = Vector2(0.9999, -0.999901)
+position = Vector2(7.61352, 1010.37)
+rotation = -2.06046
+scale = Vector2(0.999901, -0.999901)
 texture = ExtResource("2_ygbu6")
 offset = Vector2(32, 144)
 
 [node name="RightThigh" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(230.436, 709.135)
+position = Vector2(230.436, 709.134)
 rotation = -2.78595
-scale = Vector2(0.99991, -0.999911)
+scale = Vector2(0.999911, -0.999911)
 texture = ExtResource("3_c4jsv")
 offset = Vector2(56, 184)
 
@@ -1851,38 +1851,38 @@ texture = ExtResource("4_088uj")
 offset = Vector2(-89, 152)
 
 [node name="LeftFoot" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(292.012, 1201.99)
+position = Vector2(292.011, 1201.99)
 rotation = -2.68636
-scale = Vector2(0.999457, -1.00045)
+scale = Vector2(0.999941, -0.999941)
 texture = ExtResource("6_gntgc")
 offset = Vector2(-51, 54)
 
 [node name="LeftShin" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(547.198, 917.222)
 rotation = -2.68636
-scale = Vector2(0.999914, -0.999915)
+scale = Vector2(0.999913, -0.999914)
 texture = ExtResource("5_urpc3")
 offset = Vector2(48, 224)
 
 [node name="RightHand" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(803.686, 314.807)
 rotation = 2.07883
-scale = Vector2(0.999922, -1.00013)
+scale = Vector2(0.999922, -1.00087)
 texture = ExtResource("7_cysti")
 offset = Vector2(-24, 0)
 flip_v = true
 
 [node name="RightArm" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(725.768, 686.925)
-rotation = 1.63003
-scale = Vector2(0.99992, -0.99992)
+rotation = 1.63004
+scale = Vector2(0.99992, -0.999921)
 texture = ExtResource("8_cc055")
 offset = Vector2(-96, 24)
 
 [node name="RightLowerArm" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(785.047, 498.119)
-rotation = 1.63003
-scale = Vector2(0.999919, -0.99992)
+rotation = 1.63004
+scale = Vector2(0.99992, -0.99992)
 texture = ExtResource("9_igi13")
 offset = Vector2(-88, 8)
 
@@ -1901,7 +1901,7 @@ texture = ExtResource("11_sswyi")
 offset = Vector2(-71, -237)
 
 [node name="Head" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(825.365, 747.31)
+position = Vector2(825.365, 747.309)
 rotation = 1.50093
 scale = Vector2(0.999922, 0.999922)
 texture = ExtResource("15_mbjvx")
@@ -1909,23 +1909,23 @@ offset = Vector2(-80, 24)
 
 [node name="LeftHand" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(271.169, 609.111)
-rotation = 0.39678
-scale = Vector2(0.99992, -0.99992)
+rotation = 0.396781
+scale = Vector2(0.999922, -0.999921)
 texture = ExtResource("12_i0668")
 offset = Vector2(88, -40)
 flip_v = true
 
 [node name="LeftArm" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(655.558, 792.129)
-rotation = 0.560789
-scale = Vector2(0.999921, -0.999921)
+rotation = 0.56079
+scale = Vector2(0.999921, -0.999922)
 texture = ExtResource("13_gqoua")
 offset = Vector2(-80, 48)
 
 [node name="LeftLowerArm" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(561.051, 581.634)
-rotation = 0.183798
-scale = Vector2(0.999919, -0.999919)
+position = Vector2(561.051, 581.635)
+rotation = 0.183799
+scale = Vector2(0.999922, -0.999921)
 texture = ExtResource("14_0vfgp")
 offset = Vector2(-128, -32)
 
@@ -1937,7 +1937,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_m5k3q")
 
 [node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(184, 712)
-scale = Vector2(0.999921, 0.999921)
+scale = Vector2(0.999918, 0.999918)
 rest = Transform2D(1, 0, 0, 1, 232, 560)
 metadata/_local_pose_override_enabled_ = true
 

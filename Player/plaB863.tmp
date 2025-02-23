@@ -133,6 +133,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_e1yig"]
 resource_name = "Shooting AK"
 length = 0.100001
+loop_mode = 1
 step = 0.00833333
 tracks/0/type = "value"
 tracks/0/imported = false

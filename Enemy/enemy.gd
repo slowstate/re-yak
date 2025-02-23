@@ -57,13 +57,13 @@ func looking_right(is_looking_right: bool):
 	else:
 		DIRECTION = Vector2(-1,0)
 		animation_player.play("Run_Left")
-	player_detector_1.target_position = Vector2( -650.0 if sprite_2d.flip_h == true else 650.0, 0.0 )
-	player_detector_2.target_position = Vector2( -630.0 if sprite_2d.flip_h == true else 630.0, -50.0 )
-	player_detector_3.target_position = Vector2( -610.0 if sprite_2d.flip_h == true else 610.0, -100.0 )
-	back_detector_1.target_position = Vector2( 100.0 if sprite_2d.flip_h == true else -100.0, 0.0 )
-	back_detector_2.target_position = Vector2( 80.0 if sprite_2d.flip_h == true else -90.0, -80.0 )
-	attack_detector_1.target_position = Vector2( -50.0 if sprite_2d.flip_h == true else 50.0, 0.0 )
-	attack_detector_2.target_position = Vector2( -40.0 if sprite_2d.flip_h == true else 40.0, -60.0 )
+	player_detector_1.target_position = Vector2( -650.0 if DIRECTION == Vector2(-1,0) else 650.0, 0.0 )
+	player_detector_2.target_position = Vector2( -630.0 if DIRECTION == Vector2(-1,0) else 630.0, -50.0 )
+	player_detector_3.target_position = Vector2( -610.0 if DIRECTION == Vector2(-1,0) else 610.0, -100.0 )
+	back_detector_1.target_position = Vector2( 100.0 if DIRECTION == Vector2(-1,0) else -100.0, 0.0 )
+	back_detector_2.target_position = Vector2( 80.0 if DIRECTION == Vector2(-1,0) else -90.0, -80.0 )
+	attack_detector_1.target_position = Vector2( -50.0 if DIRECTION == Vector2(-1,0) else 50.0, 0.0 )
+	attack_detector_2.target_position = Vector2( -40.0 if DIRECTION == Vector2(-1,0) else 40.0, -60.0 )
 
 func _on_enemy_idle_moving(is_moving):
 	moving = false
@@ -72,9 +72,13 @@ func _on_enemy_roaming_moving(is_moving):
 func _on_chasing_player_moving(is_moving):
 	moving = true
 
-func _on_chasing_player_attack(right: bool):
+func _on_chasing_player_attack():
 	player_hit.emit()
-	if right:
+	if DIRECTION == Vector2(1,0):
 		animation_player.play("Attack_Right")
 	else:
 		animation_player.play("Attack_Left")
+	#if right:
+		#animation_player.play("Attack_Right")
+	#else:
+		#animation_player.play("Attack_Left")

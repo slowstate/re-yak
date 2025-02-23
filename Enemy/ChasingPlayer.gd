@@ -14,7 +14,7 @@ class_name ChasingPlayer extends State
 
 signal look_right(look_right: bool)
 signal moving(is_moving: bool)
-signal attack(right: bool)
+signal attack
 
 func enter() -> void:
 	moving.emit(true)
@@ -24,13 +24,14 @@ func exit() -> void:
 	
 func update(delta: float) -> void:
 	if attack_range_detected() && attack_timer.is_stopped():
-		attack.emit(player_detector_1.target_position.x > 0)
+		attack.emit()
 		attack_timer.wait_time = 3
 		attack_timer.start()
 	if !player_detected():
 		if back_detected():
 			look_right.emit(back_detector_1.target_position.x > 0)
 		else: chasing_player_timer.start()
+	else: look_right.emit(back_detector_1.target_position.x < 0)
 	
 func physics_update(delta: float) -> void:
 	pass

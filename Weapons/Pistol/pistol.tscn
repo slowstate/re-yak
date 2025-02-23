@@ -5,7 +5,6 @@
 [sub_resource type="Animation" id="Animation_85ol3"]
 resource_name = "Pistol Shooting"
 length = 0.250002
-loop_mode = 1
 step = 0.0166667
 tracks/0/type = "value"
 tracks/0/imported = false
