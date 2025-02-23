@@ -24,14 +24,14 @@
 [ext_resource type="Texture2D" uid="uid://omk6ff6cny1x" path="res://Enemy/Animation/R hand.png" id="22_s7dok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xms"]
-size = Vector2(67, 4)
+size = Vector2(109, 4)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iy2cn"]
 radius = 10.0499
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4t632"]
 radius = 27.0
-height = 90.0
+height = 80.0
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_g067m"]
 enabled = false
@@ -817,7 +817,7 @@ collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox"]
-position = Vector2(-2, -44)
+position = Vector2(0, -35)
 shape = SubResource("CircleShape2D_iy2cn")
 
 [node name="Hitbox" type="Area2D" parent="."]

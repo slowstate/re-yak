@@ -108,13 +108,13 @@ func shoot_bullet():
 		gun_cooldown_timer.wait_time = 0.4
 		smg_animation_player.play("SMG Shooting")
 	elif Global.style == Global.Style.A:
-		gunshot_style_a.volume_db = randf_range(-30,-25)
+		gunshot_style_a.volume_db = randf_range(-25,-20)
 		gunshot_style_a.pitch_scale = randf_range(0.8,1.2)
 		gunshot_style_a.play()
-		gun_cooldown_timer.wait_time = 0.2
+		gun_cooldown_timer.wait_time = 0.3
 		assault_rifle_animation_player.play("Shooting AK")
 	else:
-		gunshot_style_c.volume_db = randf_range(-30,-25)
+		gunshot_style_c.volume_db = randf_range(-25,-20)
 		gunshot_style_c.pitch_scale = randf_range(0.8,1.2)
 		gunshot_style_c.play()
 		gun_cooldown_timer.wait_time = 0.5

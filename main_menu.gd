@@ -15,12 +15,15 @@ var arena = preload("res://arena.tscn")
 @onready var next_button: Button = $Story/NextButton
 @onready var text_box: Sprite2D = $Story/TextBox
 @onready var label: Label = $Story/Label
+@onready var score_label: Label = $StartMenu/ScoreLabel
 
 @onready var just_a_chill_guy: AudioStreamPlayer = $JustAChillGuy
 
 @onready var game_time: Timer = $GameTime
 
 var storyboard
+var arena_instance
+var score
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -74,7 +77,8 @@ func _on_next_button_pressed() -> void:
 func _on_start_button_2_pressed() -> void:
 	story.visible = false
 	just_a_chill_guy.playing = false
-	var arena_instance = arena.instantiate()
+	arena_instance = arena.instantiate()
+	arena_instance.score.connect(on_score_update)
 	arena_instance.set_name("Arena")
 	add_child(arena_instance)
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -84,3 +88,6 @@ func _on_start_button_2_pressed() -> void:
 
 func _on_game_time_timeout() -> void:
 	_ready()
+
+func on_score_update(score: int):
+	score_label.text = "Last Score: " + str(score)

@@ -1867,7 +1867,7 @@ offset = Vector2(48, 224)
 [node name="RightHand" type="Sprite2D" parent="CharacterContainer/Body"]
 position = Vector2(803.686, 314.807)
 rotation = 2.07883
-scale = Vector2(0.999922, -1.00087)
+scale = Vector2(0.999922, -0.999997)
 texture = ExtResource("7_cysti")
 offset = Vector2(-24, 0)
 flip_v = true
@@ -1937,7 +1937,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_m5k3q")
 
 [node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(184, 712)
-scale = Vector2(0.999918, 0.999918)
+scale = Vector2(0.99992, 0.99992)
 rest = Transform2D(1, 0, 0, 1, 232, 560)
 metadata/_local_pose_override_enabled_ = true
 

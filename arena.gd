@@ -11,7 +11,7 @@ var enemy_scene = preload("res://Enemy/enemy.tscn")
 @onready var enemy_spawn_timer = $"EnemySpawnTimer"
 @onready var kills_in_quick_succession_timer = $KillsInQuickSuccessionTimer
 
-var enemy_limit = 2
+var enemy_limit = 5
 var enemy_count = 0
 
 @onready var total_score_label = $"TotalScoreLabel"
@@ -26,6 +26,8 @@ var enemy_count = 0
 @onready var enemy_headshot_style_a: AudioStreamPlayer = $Audio/SoundEffects/EnemyHeadshotStyleA
 @onready var combo_label = $ComboLabel
 @onready var combo_label_timer = $ComboLabelTimer
+@onready var game_timer_label: Label = $GameTimerLabel
+@onready var timer: Timer = $Timer
 
 var total_score = 0
 var style_score = 0
@@ -33,12 +35,15 @@ var style_string = "C"
 
 var spawn_points = [Vector2(285, 150), Vector2(870, 150), Vector2(565, 320), Vector2(350, 505), Vector2(795, 505)]
 
+signal score(score: int)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.style = Global.Style.C
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	game_timer_label.text = "Time left: " + str(round(timer.time_left)) + "s"
 	update_style()
 	if get_tree().get_nodes_in_group("enemies").size() < enemy_limit:
 		enemy_count+=1
@@ -102,25 +107,34 @@ func on_player_hit():
 
 
 func update_style():
-	if style_score < 20 && Global.style != Global.Style.C:
+	if style_score < 1 && Global.style != Global.Style.C:
 		Global.style = Global.Style.C
 		style_string = "C"
-		enemy_limit = 2
+		style_label.add_theme_color_override("font_color", Color.WHITE)
+		style_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		style_label.add_theme_constant_override("outline_size", 5)
+		enemy_limit = 5
 		pressure_style_c.volume_db = -10
 		pressure_style_b.volume_db = -80
 		pressure_style_a.volume_db = -80
-	elif style_score >= 20 && style_score < 50 && Global.style != Global.Style.B:
+	elif style_score >= 50 && style_score < 200 && Global.style != Global.Style.B:
 		Global.style = Global.Style.B
 		style_string = "B"
-		enemy_limit = 3
+		style_label.add_theme_color_override("font_color", Color.DARK_KHAKI)
+		style_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		style_label.add_theme_constant_override("outline_size", 10)
+		enemy_limit = 10
 		pressure_style_c.volume_db = -80
 		pressure_style_b.volume_db = -9
 		pressure_style_a.volume_db = -80
 		style_upgrade_1.play()
-	elif style_score >= 50 && Global.style != Global.Style.A:
+	elif style_score >= 200 && Global.style != Global.Style.A:
 		Global.style = Global.Style.A
 		style_string = "A"
-		enemy_limit = 5
+		style_label.add_theme_color_override("font_color", Color.RED)
+		style_label.add_theme_color_override("font_outline_color", Color.BLACK)
+		style_label.add_theme_constant_override("outline_size", 15)
+		enemy_limit = 20
 		pressure_style_c.volume_db = -80
 		pressure_style_b.volume_db = -80
 		pressure_style_a.volume_db = -8
@@ -136,5 +150,6 @@ func _on_combo_label_timer_timeout():
 
 
 func _on_timer_timeout() -> void:
+	score.emit(total_score)
 	queue_free()
 	
