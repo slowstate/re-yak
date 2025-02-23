@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c28jmx1c3n5d6"]
+[gd_scene load_steps=17 format=3 uid="uid://c28jmx1c3n5d6"]
 
 [ext_resource type="PackedScene" uid="uid://cynexbpvvg7vt" path="res://Player/player.tscn" id="1_4p8dc"]
 [ext_resource type="Script" path="res://arena.gd" id="1_snrlg"]
@@ -8,6 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://cd3xfrwiuogrw" path="res://Audio/Sound_Effects/Style Upgrade 1.wav" id="6_7uime"]
 [ext_resource type="AudioStream" uid="uid://cgniccucgu1bp" path="res://Audio/Sound_Effects/Style Upgrade 2.wav" id="7_ecj2k"]
 [ext_resource type="AudioStream" uid="uid://bhh0jrx20iwnr" path="res://Audio/Sound_Effects/Style Lost.mp3" id="8_q5fl0"]
+[ext_resource type="AudioStream" uid="uid://bfstopg5y8fbf" path="res://Audio/Sound_Effects/Enemy Hit.mp3" id="9_abqan"]
+[ext_resource type="AudioStream" uid="uid://bbnhh1hadmth1" path="res://Audio/Sound_Effects/Enemy Headshot Style C.mp3" id="10_5qmh6"]
+[ext_resource type="AudioStream" uid="uid://cpjn3lvfavpf" path="res://Audio/Sound_Effects/Enemy Headshot Style B.mp3" id="11_f26tc"]
+[ext_resource type="AudioStream" uid="uid://qmdyuy7hlu85" path="res://Audio/Sound_Effects/Enemy Headshot Style A.mp3" id="12_gxbid"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgnk6"]
 
@@ -123,6 +127,18 @@ volume_db = -10.0
 [node name="StyleLost" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
 stream = ExtResource("8_q5fl0")
 volume_db = -10.0
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+stream = ExtResource("9_abqan")
+
+[node name="EnemyHeadshotStyleC" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+stream = ExtResource("10_5qmh6")
+
+[node name="EnemyHeadshotStyleB" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+stream = ExtResource("11_f26tc")
+
+[node name="EnemyHeadshotStyleA" type="AudioStreamPlayer" parent="Audio/SoundEffects"]
+stream = ExtResource("12_gxbid")
 
 [connection signal="timeout" from="KillsInQuickSuccessionTimer" to="." method="_on_kills_in_quick_succession_timer_timeout"]
 [connection signal="timeout" from="ComboLabelTimer" to="." method="_on_combo_label_timer_timeout"]
