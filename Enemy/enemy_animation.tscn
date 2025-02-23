@@ -200,7 +200,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.06, 0.06)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -350,7 +350,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.06, 0.06)]
 }
 
 [sub_resource type="Animation" id="Animation_jrv2t"]
@@ -464,7 +464,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-0.06, 0.06)]
 }
 
 [sub_resource type="Animation" id="Animation_0i8ba"]
@@ -554,7 +554,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 1)]
+"values": [Vector2(-0.06, 0.06)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -704,7 +704,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0.06, 0.06)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -777,6 +777,7 @@ _data = {
 }
 
 [node name="EnemyAnimation" type="Node2D"]
+scale = Vector2(0.06, 0.06)
 
 [node name="CharacterContainer" type="Node2D" parent="."]
 
@@ -784,97 +785,97 @@ _data = {
 position = Vector2(-45, -390)
 
 [node name="LArm" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(93.3501, -27.3988)
-rotation = 0.929091
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(18, -39)
+rotation = -0.197228
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("1_52hx7")
 offset = Vector2(57, 139)
 
 [node name="LForearm" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-29.0247, 181.381)
-rotation = -0.636302
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(153.875, 161.257)
+rotation = -1.76262
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("2_knumf")
 offset = Vector2(16, 113)
 
 [node name="LHand" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(183.629, 341.316)
-rotation = -0.636302
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(389.708, 38.0355)
+rotation = -1.76262
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("3_erej5")
 offset = Vector2(2, 0)
 
 [node name="LLeg" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(16.0472, 375.279)
-rotation = -0.20931
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(23, 371)
+rotation = 0.00922435
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("4_65u31")
 offset = Vector2(-31, 184)
 
 [node name="LFoot" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-413.296, 874.349)
-rotation = 0.810022
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(-183.819, 1179.74)
+rotation = -0.130402
+scale = Vector2(0.999995, 0.999995)
 texture = ExtResource("5_r8gwu")
 offset = Vector2(67, -13)
 
 [node name="LShin" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(44.2521, 734.252)
-rotation = 0.810022
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(-27.291, 727.551)
+rotation = -0.130402
+scale = Vector2(0.999995, 0.999995)
 texture = ExtResource("6_p7s4x")
 offset = Vector2(-94, 171)
 
 [node name="RFoot" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-7.02711, 1199.66)
-rotation = 0.57644
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(259.295, 1202.25)
+rotation = 0.00377442
+scale = Vector2(0.999996, 0.999996)
 texture = ExtResource("7_trvyf")
 offset = Vector2(66, -21)
 
 [node name="RShin" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(140.354, 800.49)
-rotation = 0.57644
-scale = Vector2(0.999994, 0.999994)
+position = Vector2(166.863, 786.9)
+rotation = 0.00377442
+scale = Vector2(0.999996, 0.999996)
 texture = ExtResource("8_k25mt")
 offset = Vector2(40, 170)
 
 [node name="RLeg" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(41.3827, 411.085)
-rotation = 0.0232549
-scale = Vector2(0.999996, 0.999996)
+position = Vector2(55, 401)
+rotation = -0.00999624
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("9_to6fj")
 offset = Vector2(43, 186)
 
 [node name="Torso" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(32.21, 401.042)
-rotation = 0.201859
+position = Vector2(44, 393)
+scale = Vector2(1, 1)
 texture = ExtResource("10_mrx4c")
 offset = Vector2(-28, -273)
 
 [node name="Head" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(139.19, -191.541)
-rotation = 0.201859
+position = Vector2(30, -209)
+scale = Vector2(1, 1)
 texture = ExtResource("11_onwln")
 offset = Vector2(39, -31)
 
 [node name="RArm" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(14.4369, -10.8849)
-rotation = 0.175335
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(-56, -7)
+rotation = 0.977384
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("12_i2cq1")
 offset = Vector2(-11, 106)
 
 [node name="RForearm" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(-48.0326, 198.426)
-rotation = -0.822433
+position = Vector2(-249.881, 93.6187)
+rotation = -0.695342
 scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("13_ag1ny")
 offset = Vector2(4, 123)
 
 [node name="RHand" type="Sprite2D" parent="CharacterContainer/Body"]
-position = Vector2(154.011, 380.574)
-rotation = -0.822433
+position = Vector2(-72.5535, 299.907)
+rotation = -0.695342
 scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("14_cbx7h")
 offset = Vector2(55, 40)
@@ -892,7 +893,7 @@ rest = Transform2D(1, 0, 0, 1, -1, 3)
 [node name="ArmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-26, -432)
 rotation = -0.197228
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -26, -432)
 
 [node name="ForearmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
@@ -919,13 +920,13 @@ remote_path = NodePath("../../../../../Body/LArm")
 [node name="ArmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-100, -400)
 rotation = 0.977384
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -100, -400)
 
 [node name="ForearmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
 position = Vector2(-25, 217)
 rotation = -1.67273
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 rest = Transform2D(1, 0, 0, 1, -25, 217)
 
 [node name="HandR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
@@ -947,13 +948,13 @@ remote_path = NodePath("../../../../../Body/RArm")
 [node name="LegL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-21, -22)
 rotation = -1.07492
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, -21, -22)
 
 [node name="ShinL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
 position = Vector2(-47, 357)
 rotation = -0.139626
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999997, 0.999997)
 rest = Transform2D(1, 0, 0, 1, -47, 357)
 
 [node name="FootL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
@@ -975,13 +976,13 @@ remote_path = NodePath("../../../../../Body/LLeg")
 [node name="LegR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(11, 8)
 rotation = 0.633119
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 11, 8)
 
 [node name="ShinR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
 position = Vector2(108, 387)
 rotation = 1.56025
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 108, 387)
 
 [node name="FootR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
@@ -1029,3 +1030,4 @@ position = Vector2(242, -90)
 libraries = {
 "": SubResource("AnimationLibrary_7pvq5")
 }
+speed_scale = 1.5
