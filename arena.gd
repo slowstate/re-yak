@@ -134,4 +134,5 @@ func _on_combo_label_timer_timeout():
 
 
 func _on_timer_timeout() -> void:
-	queue_free() # Replace with function body.
+	queue_free()
+	

@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdad6tsjxk71q"]
+[gd_scene load_steps=11 format=3 uid="uid://bdad6tsjxk71q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l3gyo"]
 [ext_resource type="Script" path="res://main_menu.gd" id="2_rtyk6"]
+[ext_resource type="Texture2D" uid="uid://c1051i1i1qbx4" path="res://Images/BG_Complete.png" id="3_6byen"]
+[ext_resource type="Texture2D" uid="uid://ccj5ivboaeie1" path="res://Images/Title.png" id="3_gh3fj"]
+[ext_resource type="Texture2D" uid="uid://d3welwu0fqbmx" path="res://Images/TextBox.png" id="4_dwfqm"]
+[ext_resource type="Texture2D" uid="uid://dfyf6s5340wle" path="res://Images/Player/Player.png" id="4_j0m0i"]
+[ext_resource type="Texture2D" uid="uid://doukrvtobkxxv" path="res://Images/Enemy/Enemy.png" id="5_oddu0"]
+[ext_resource type="Texture2D" uid="uid://brm06wlmmd7cb" path="res://Images/Player/Front_MC_Crop.png" id="6_tkds7"]
+[ext_resource type="Texture2D" uid="uid://dhpiqvoxyygjd" path="res://Images/Enemy/Enemy_Crop.png" id="7_ygur0"]
+[ext_resource type="AudioStream" uid="uid://hxhxgqx27tjm" path="res://Audio/Music/Just A Chill Guy.wav" id="9_22x7d"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l3gyo")
@@ -13,24 +21,88 @@ offset_right = 1152.0
 offset_bottom = 647.0
 script = ExtResource("2_rtyk6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -476.0
-offset_top = 90.5
-offset_right = -364.0
-offset_bottom = 121.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="StartMenu" type="Node2D" parent="MainMenu"]
 
-[node name="StartButton" type="Button" parent="MainMenu/VBoxContainer"]
-layout_mode = 2
-text = "Start"
+[node name="Title" type="Sprite2D" parent="MainMenu/StartMenu"]
+position = Vector2(575, 324)
+scale = Vector2(0.600463, 0.600463)
+texture = ExtResource("3_gh3fj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
+[node name="StartButton1" type="Button" parent="MainMenu/StartMenu"]
+z_index = 1
+offset_left = 204.0
+offset_top = 517.0
+offset_right = 395.0
+offset_bottom = 582.0
+theme_override_font_sizes/font_size = 30
+text = "Play"
 
-[connection signal="pressed" from="MainMenu/VBoxContainer/StartButton" to="MainMenu" method="_on_start_button_pressed"]
+[node name="Story" type="Node2D" parent="MainMenu"]
+visible = false
+
+[node name="ArenaBackground" type="Sprite2D" parent="MainMenu/Story"]
+position = Vector2(584, 324.25)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("3_6byen")
+
+[node name="TextBox" type="Sprite2D" parent="MainMenu/Story"]
+position = Vector2(582, 119)
+scale = Vector2(0.211628, 0.211628)
+texture = ExtResource("4_dwfqm")
+
+[node name="Label" type="Label" parent="MainMenu/Story"]
+offset_left = 374.0
+offset_top = 50.0
+offset_right = 790.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+autowrap_mode = 3
+
+[node name="MainChar" type="Sprite2D" parent="MainMenu/Story"]
+position = Vector2(585, 534)
+scale = Vector2(0.070542, 0.070542)
+texture = ExtResource("4_j0m0i")
+
+[node name="Enemy" type="Sprite2D" parent="MainMenu/Story"]
+visible = false
+position = Vector2(362, 536.568)
+scale = Vector2(0.0724234, 0.0724234)
+texture = ExtResource("5_oddu0")
+
+[node name="MainCharPortrait" type="Sprite2D" parent="MainMenu/Story"]
+position = Vector2(901, 146)
+scale = Vector2(0.332724, 0.332724)
+texture = ExtResource("6_tkds7")
+
+[node name="EnemyPortrait" type="Sprite2D" parent="MainMenu/Story"]
+visible = false
+position = Vector2(268, 152)
+scale = Vector2(0.25078, 0.25078)
+texture = ExtResource("7_ygur0")
+
+[node name="NextButton" type="Button" parent="MainMenu/Story"]
+offset_left = 972.0
+offset_top = 561.0
+offset_right = 1111.0
+offset_bottom = 621.0
+text = "Next"
+
+[node name="StartButton2" type="Button" parent="MainMenu/Story"]
+visible = false
+offset_left = 973.0
+offset_top = 562.0
+offset_right = 1112.0
+offset_bottom = 622.0
+text = "Fight!"
+
+[node name="JustAChillGuy" type="AudioStreamPlayer" parent="MainMenu"]
+stream = ExtResource("9_22x7d")
+
+[node name="GameTime" type="Timer" parent="MainMenu"]
+wait_time = 180.0
+one_shot = true
+
+[connection signal="pressed" from="MainMenu/StartMenu/StartButton1" to="MainMenu" method="_on_start_button_1_pressed"]
+[connection signal="pressed" from="MainMenu/Story/NextButton" to="MainMenu" method="_on_next_button_pressed"]
+[connection signal="pressed" from="MainMenu/Story/StartButton2" to="MainMenu" method="_on_start_button_2_pressed"]
+[connection signal="timeout" from="MainMenu/GameTime" to="MainMenu" method="_on_game_time_timeout"]

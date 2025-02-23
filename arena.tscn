@@ -69,7 +69,7 @@ scale = Vector2(0.466, 0.466)
 texture = ExtResource("2_dbrti")
 
 [node name="Player" parent="." instance=ExtResource("1_4p8dc")]
-position = Vector2(538, 545)
+position = Vector2(561, 554)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
