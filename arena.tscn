@@ -1,17 +1,40 @@
-[gd_scene load_steps=17 format=3 uid="uid://c28jmx1c3n5d6"]
+[gd_scene load_steps=43 format=3 uid="uid://c28jmx1c3n5d6"]
 
 [ext_resource type="PackedScene" uid="uid://cynexbpvvg7vt" path="res://Player/player.tscn" id="1_4p8dc"]
 [ext_resource type="Script" path="res://arena.gd" id="1_snrlg"]
+[ext_resource type="Texture2D" uid="uid://c6dfhts2auu85" path="res://Images/Background/BG.png" id="2_3ptpv"]
+[ext_resource type="Texture2D" uid="uid://c1051i1i1qbx4" path="res://Images/BG_Complete.png" id="2_dbrti"]
 [ext_resource type="AudioStream" uid="uid://b6lncdtjy2f8j" path="res://Audio/Music/Pressure_Style_C.wav" id="3_pioil"]
+[ext_resource type="Texture2D" uid="uid://cmm8skq3s5f5k" path="res://icon.svg" id="4_cv5oh"]
 [ext_resource type="AudioStream" uid="uid://b24rtrl6t7c31" path="res://Audio/Music/Pressure_Style_B.wav" id="4_or6y6"]
+[ext_resource type="PackedScene" uid="uid://dq2bygl23emws" path="res://Terrain/Stairs/stairs.tscn" id="4_yewtv"]
+[ext_resource type="Texture2D" uid="uid://mninhfklxjs7" path="res://Images/Background/Door top left.png" id="5_dek6j"]
+[ext_resource type="PackedScene" uid="uid://ci78avi2nfdsl" path="res://Terrain/Stairs/stairs_interaction_zone.tscn" id="5_gsrfr"]
+[ext_resource type="Texture2D" uid="uid://byhr7biwnasmg" path="res://Images/Background/Stair left.png" id="5_j65xu"]
 [ext_resource type="AudioStream" uid="uid://q7ajjx2v3ps8" path="res://Audio/Music/Pressure_Style_A.wav" id="5_lcome"]
+[ext_resource type="Texture2D" uid="uid://bonom7mhb1jnv" path="res://Images/Background/Trash top.png" id="6_1v4iv"]
 [ext_resource type="AudioStream" uid="uid://cd3xfrwiuogrw" path="res://Audio/Sound_Effects/Style Upgrade 1.wav" id="6_7uime"]
 [ext_resource type="AudioStream" uid="uid://cgniccucgu1bp" path="res://Audio/Sound_Effects/Style Upgrade 2.wav" id="7_ecj2k"]
+[ext_resource type="Texture2D" uid="uid://bmsptxh65qeld" path="res://Images/Background/Door top right.png" id="7_rfa8o"]
+[ext_resource type="Texture2D" uid="uid://dqvbxjyllcm2i" path="res://Images/Background/Top floor.png" id="8_m0xjf"]
+[ext_resource type="Texture2D" uid="uid://bttqp8gyj45vr" path="res://Images/Background/Ladder left.png" id="8_osnuu"]
+[ext_resource type="Texture2D" uid="uid://gaw6fsjxg8os" path="res://Images/Background/Box middle left.png" id="8_q0q1h"]
 [ext_resource type="AudioStream" uid="uid://bhh0jrx20iwnr" path="res://Audio/Sound_Effects/Style Lost.mp3" id="8_q5fl0"]
+[ext_resource type="Texture2D" uid="uid://bd8r3jg7k6wjb" path="res://Images/Background/Doof bottom left.png" id="8_rmpdd"]
 [ext_resource type="AudioStream" uid="uid://bfstopg5y8fbf" path="res://Audio/Sound_Effects/Enemy Hit.mp3" id="9_abqan"]
+[ext_resource type="Texture2D" uid="uid://cb4q3gtgtmbln" path="res://Images/Background/Door bottom right.png" id="9_brk4b"]
+[ext_resource type="Texture2D" uid="uid://dq43jpgpfq3c1" path="res://Images/Background/Trash middle left.png" id="9_hohd3"]
+[ext_resource type="Texture2D" uid="uid://di0pyw7gjb3nw" path="res://Images/Background/Door middle.png" id="9_knuf8"]
+[ext_resource type="PackedScene" uid="uid://b4iwopqui660h" path="res://Terrain/VerticalPath/ladder_interaction_zone.tscn" id="9_qmo2k"]
 [ext_resource type="AudioStream" uid="uid://bbnhh1hadmth1" path="res://Audio/Sound_Effects/Enemy Headshot Style C.mp3" id="10_5qmh6"]
+[ext_resource type="Texture2D" uid="uid://cajh7v8l1kipr" path="res://Images/Background/Trash bottom left.png" id="10_a71el"]
+[ext_resource type="Texture2D" uid="uid://cve4ljjsveu2f" path="res://Images/Background/Box middle right.png" id="10_bivnr"]
+[ext_resource type="Texture2D" uid="uid://bmyd7m8aqp87a" path="res://Images/Background/Ladder right.png" id="10_u1vxp"]
 [ext_resource type="AudioStream" uid="uid://cpjn3lvfavpf" path="res://Audio/Sound_Effects/Enemy Headshot Style B.mp3" id="11_f26tc"]
+[ext_resource type="Texture2D" uid="uid://capdw4vooducq" path="res://Images/Background/Trash middle right.png" id="11_s7jf5"]
+[ext_resource type="Texture2D" uid="uid://1l7gd57ke0mt" path="res://Images/Background/Table.png" id="11_vbsvg"]
 [ext_resource type="AudioStream" uid="uid://qmdyuy7hlu85" path="res://Audio/Sound_Effects/Enemy Headshot Style A.mp3" id="12_gxbid"]
+[ext_resource type="Texture2D" uid="uid://7ug4v6b8e6jk" path="res://Images/Background/Trash bottom right.png" id="12_rjseo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cgnk6"]
 
@@ -24,11 +47,37 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_m0j5o"]
 normal = Vector2(-1, 0)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a741w"]
+size = Vector2(251, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1m5p"]
+size = Vector2(182, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrlej"]
+size = Vector2(271, 47)
+
 [node name="Arena" type="Node2D"]
 script = ExtResource("1_snrlg")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(584, 324.25)
+scale = Vector2(0.466163, 0.466163)
+texture = ExtResource("2_3ptpv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584, 324.25)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("2_dbrti")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(795, 505)
+scale = Vector2(0.078125, 0.078125)
+texture = ExtResource("4_cv5oh")
+
 [node name="Player" parent="." instance=ExtResource("1_4p8dc")]
-position = Vector2(539, 327)
+position = Vector2(538, 545)
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -44,27 +93,166 @@ one_shot = true
 position = Vector2(531, 648)
 
 [node name="Lower" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(0, -47)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Lower"]
 shape = SubResource("WorldBoundaryShape2D_cgnk6")
 
 [node name="Left" type="StaticBody2D" parent="WorldBoundaries"]
-position = Vector2(-531, -323)
+position = Vector2(-345, -323)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Left"]
 shape = SubResource("WorldBoundaryShape2D_0bskt")
 
 [node name="Upper" type="StaticBody2D" parent="WorldBoundaries"]
-position = Vector2(-1, -649)
+position = Vector2(-1, -617)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Upper"]
 shape = SubResource("WorldBoundaryShape2D_1ysb0")
 
 [node name="Right" type="StaticBody2D" parent="WorldBoundaries"]
-position = Vector2(621, -325)
+position = Vector2(455, -325)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Right"]
 shape = SubResource("WorldBoundaryShape2D_m0j5o")
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="2ndFloor" type="StaticBody2D" parent="Terrain"]
+
+[node name="LeftFloor" type="CollisionShape2D" parent="Terrain/2ndFloor"]
+position = Vector2(299.5, 232.5)
+shape = SubResource("RectangleShape2D_a741w")
+
+[node name="MiddleFloor" type="CollisionShape2D" parent="Terrain/2ndFloor"]
+position = Vector2(573, 232)
+shape = SubResource("RectangleShape2D_c1m5p")
+
+[node name="RightFloor" type="CollisionShape2D" parent="Terrain/2ndFloor"]
+position = Vector2(858.5, 232.5)
+shape = SubResource("RectangleShape2D_mrlej")
+
+[node name="DoorTopLeft" type="Sprite2D" parent="Terrain/2ndFloor"]
+position = Vector2(293, 163)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("5_dek6j")
+
+[node name="TrashTop" type="Sprite2D" parent="Terrain/2ndFloor"]
+position = Vector2(552, 182)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("6_1v4iv")
+
+[node name="DoorTopRight" type="Sprite2D" parent="Terrain/2ndFloor"]
+position = Vector2(874, 165)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("7_rfa8o")
+
+[node name="Floor" type="Sprite2D" parent="Terrain/2ndFloor"]
+z_index = 2
+position = Vector2(584, 219)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("8_m0xjf")
+
+[node name="1stFloor" type="StaticBody2D" parent="Terrain"]
+
+[node name="Floor" type="CollisionPolygon2D" parent="Terrain/1stFloor"]
+polygon = PackedVector2Array(278, 439, 278, 387, 890, 387, 890, 439)
+
+[node name="BoxMiddleLeft" type="Sprite2D" parent="Terrain/1stFloor"]
+z_index = 2
+position = Vector2(320, 389)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("8_q0q1h")
+
+[node name="TrashMiddleLeft" type="Sprite2D" parent="Terrain/1stFloor"]
+z_index = 2
+position = Vector2(362, 381)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("9_hohd3")
+
+[node name="LadderLeft" type="Sprite2D" parent="Terrain/1stFloor"]
+position = Vector2(454, 293)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("8_osnuu")
+
+[node name="LadderInteractionZone" parent="Terrain/1stFloor/LadderLeft" instance=ExtResource("9_qmo2k")]
+
+[node name="DoorMiddle" type="Sprite2D" parent="Terrain/1stFloor"]
+position = Vector2(572, 326)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("9_knuf8")
+
+[node name="LadderRIght" type="Sprite2D" parent="Terrain/1stFloor"]
+position = Vector2(695, 293)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("10_u1vxp")
+
+[node name="LadderInteractionZone" parent="Terrain/1stFloor/LadderRIght" instance=ExtResource("9_qmo2k")]
+
+[node name="BoxMiddleRight" type="Sprite2D" parent="Terrain/1stFloor"]
+z_index = 2
+position = Vector2(744, 389)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("10_bivnr")
+
+[node name="TrashMiddleRight" type="Sprite2D" parent="Terrain/1stFloor"]
+z_index = 2
+position = Vector2(863, 380)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("11_s7jf5")
+
+[node name="GroundFloor" type="Node2D" parent="Terrain"]
+
+[node name="Stairs" parent="Terrain/GroundFloor" instance=ExtResource("4_yewtv")]
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/GroundFloor/Stairs"]
+position = Vector2(235.5, 503.877)
+scale = Vector2(0.468165, 0.468165)
+texture = ExtResource("5_j65xu")
+
+[node name="VerticalPath" parent="Terrain/GroundFloor/Stairs" instance=ExtResource("5_gsrfr")]
+position = Vector2(226, 438)
+rotation = 0.225147
+
+[node name="Stairs2" parent="Terrain/GroundFloor" instance=ExtResource("4_yewtv")]
+position = Vector2(1167, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Terrain/GroundFloor/Stairs2"]
+position = Vector2(236, 503.877)
+scale = Vector2(0.468, 0.468)
+texture = ExtResource("5_j65xu")
+
+[node name="VerticalPath2" parent="Terrain/GroundFloor/Stairs2" instance=ExtResource("5_gsrfr")]
+position = Vector2(223, 437)
+rotation = -2.91645
+scale = Vector2(1, -1)
+
+[node name="DoorBottomLeft" type="Sprite2D" parent="Terrain/GroundFloor"]
+position = Vector2(360, 509)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("8_rmpdd")
+
+[node name="DoorBottomRight" type="Sprite2D" parent="Terrain/GroundFloor"]
+position = Vector2(802, 509)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("9_brk4b")
+
+[node name="TrashBottomLeft" type="Sprite2D" parent="Terrain/GroundFloor"]
+position = Vector2(425, 541)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("10_a71el")
+
+[node name="Table" type="Sprite2D" parent="Terrain/GroundFloor"]
+position = Vector2(622, 546)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("11_vbsvg")
+
+[node name="TrashBottomRight" type="Sprite2D" parent="Terrain/GroundFloor"]
+position = Vector2(728, 541)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("12_rjseo")
 
 [node name="TotalScoreLabel" type="Label" parent="."]
 offset_left = 486.0
@@ -74,6 +262,7 @@ offset_bottom = 42.0
 text = "Total Score: 0"
 
 [node name="StyleScoreLabel" type="Label" parent="."]
+visible = false
 offset_left = 857.0
 offset_top = 2.0
 offset_right = 968.0
@@ -81,11 +270,11 @@ offset_bottom = 42.0
 text = "Style Score: 0"
 
 [node name="StyleLabel" type="Label" parent="."]
-offset_left = 1008.0
+offset_left = 1025.0
 offset_top = 73.0
-offset_right = 1134.0
+offset_right = 1151.0
 offset_bottom = 123.0
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 33
 text = "Style: C"
 
 [node name="ComboLabel" type="Label" parent="."]

@@ -8,10 +8,8 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
 
 
-
-
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -19,15 +17,33 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var bullet_scene = preload("res://Player/Bullet/bullet.tscn")
 
 var can_shoot = true
+var bullet_origin = Vector2(12,-32)
+
+var on_vertical_path = false
 
 func _ready():
 	Global.player = self
-	animation_player.play("Run_Right")
+	floor_max_angle = deg_to_rad(80)
 	
-
+	
 func _physics_process(delta):
+	if velocity.x > 0:
+		animation_player.play("Run_Right")
+		bullet_origin = Vector2(12,-30)
+	elif velocity.x < 0:
+		animation_player.play("Run_Left")
+		bullet_origin = Vector2(-12,-30)
+	else:
+		animation_player.pause()
+	
+	if on_vertical_path:
+		velocity.y = 0
+		if Input.is_action_pressed("player_move_up"):
+			position.y -= SPEED * delta
+		if Input.is_action_pressed("player_move_down"):
+			position.y += SPEED * delta
 	# Add the gravity.
-	if not is_on_floor():
+	elif not is_on_floor():
 		velocity.y += gravity * delta
 
 	if Input.is_action_pressed("player_left_click"):
@@ -44,7 +60,7 @@ func _physics_process(delta):
 			else: gunshot_style_c.volume_db = randf_range(-30,-25)
 			gunshot_style_c.pitch_scale = randf_range(0.8,1.2)
 			gunshot_style_c.play()
-				
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -62,7 +78,7 @@ func _physics_process(delta):
 func shoot_bullet():
 	var shot_bullet = bullet_scene.instantiate()
 	
-	shot_bullet.position = global_position
+	shot_bullet.global_position = position + bullet_origin
 	shot_bullet.set_direction(get_global_mouse_position() - shot_bullet.position)
 	get_tree().root.get_child(0).add_child(shot_bullet)
 	
@@ -77,3 +93,11 @@ func shoot_bullet():
 
 func _on_gun_cooldown_timer_timeout():
 	can_shoot = true
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	on_vertical_path = true
+
+
+func _on_area_2d_area_exited(area: Area2D) -> void:
+	on_vertical_path = false

@@ -18,7 +18,7 @@ extends RigidBody2D
 signal enemy_killed(headshot: bool)
 signal player_hit
 
-var SPEED = 100
+var SPEED = 150
 var DIRECTION = Vector2(1,0)
 var moving = false
 
@@ -28,7 +28,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if moving: position += DIRECTION.normalized() * SPEED * delta
+	if moving: linear_velocity.x = DIRECTION.x * SPEED #position += DIRECTIOzN.normalized() * SPEED * delta
 
 func _on_body_entered(body):
 	if body.collision_layer == 4:

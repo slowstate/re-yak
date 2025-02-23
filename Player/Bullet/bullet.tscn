@@ -9,18 +9,19 @@ size = Vector2(10, 10)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2gapr"]
 
 [node name="Bullet" type="RigidBody2D"]
+z_index = 1
 collision_layer = 4
-collision_mask = 2
+collision_mask = 3
 script = ExtResource("1_cpx4r")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, 2.98023e-07)
-scale = Vector2(0.078125, 0.078125)
+scale = Vector2(0.025, 0.025)
 texture = ExtResource("1_jp2xt")
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_77wyi")
@@ -30,5 +31,6 @@ shape = SubResource("CircleShape2D_2gapr")
 disabled = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
