@@ -1,16 +1,36 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdad6tsjxk71q"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_l3gyo"]
-[ext_resource type="PackedScene" uid="uid://c28jmx1c3n5d6" path="res://arena.tscn" id="2_r7skv"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_rtyk6"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_l3gyo")
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1152.0
+offset_bottom = 647.0
+script = ExtResource("2_rtyk6")
 
-[node name="Arena" parent="." instance=ExtResource("2_r7skv")]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = 90.5
+offset_right = -364.0
+offset_bottom = 121.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MainMenu"]
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/StartButton" to="MainMenu" method="_on_start_button_pressed"]
