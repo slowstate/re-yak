@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ci78avi2nfdsl"]
+
+[ext_resource type="Texture2D" uid="uid://b3fx2n4721w2p" path="res://Images/Arena.png" id="1_42teg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3v2k6"]
+size = Vector2(9, 114)
+
+[node name="StairsInteractionZone" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3v2k6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584, 324.25)
+scale = Vector2(0.466163, 0.466163)
+texture = ExtResource("1_42teg")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4iwopqui660h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_laty4"]
+size = Vector2(20, 416)
+
+[node name="LadderInteractionZone" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_laty4")
