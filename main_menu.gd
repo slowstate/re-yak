@@ -39,8 +39,12 @@ func _process(delta: float) -> void:
 
 func _on_start_button_1_pressed() -> void:
 	start_menu.visible = false
+	enemy_portrait.visible = false
+	enemy.visible = false
+	main_char_portrait.visible = true
 	storyboard = 0
 	label.text = "Ughhh.. Where the hell am I?? I was playing tag with Truck-kun just a second ago.. @_@"
+	next_button.visible = true
 	story.visible = true
 
 
