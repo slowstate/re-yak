@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 @onready var sprite_2d = $Sprite2D
+@onready var animation_player: AnimationPlayer = $EnemyAnimation/AnimationPlayer
 
 @onready var enemy_state_machine = $EnemyStateMachine
 @onready var player_detector_1 = $PlayerDetector1
@@ -18,7 +19,7 @@ extends RigidBody2D
 signal enemy_killed(headshot: bool)
 signal player_hit
 
-var SPEED = 100
+var SPEED = 150
 var DIRECTION = Vector2(1,0)
 var moving = false
 
@@ -52,10 +53,10 @@ func _on_chasing_player_look_right(look_right):
 func looking_right(is_looking_right: bool):
 	if is_looking_right:
 		DIRECTION = Vector2(1,0)
-		sprite_2d.flip_h = false
+		animation_player.play("Run_Right")
 	else:
 		DIRECTION = Vector2(-1,0)
-		sprite_2d.flip_h = true
+		animation_player.play("Run_Left")
 	player_detector_1.target_position = Vector2( -650.0 if sprite_2d.flip_h == true else 650.0, 0.0 )
 	player_detector_2.target_position = Vector2( -630.0 if sprite_2d.flip_h == true else 630.0, -50.0 )
 	player_detector_3.target_position = Vector2( -610.0 if sprite_2d.flip_h == true else 610.0, -100.0 )
@@ -71,5 +72,9 @@ func _on_enemy_roaming_moving(is_moving):
 func _on_chasing_player_moving(is_moving):
 	moving = true
 
-func _on_chasing_player_attack():
+func _on_chasing_player_attack(right: bool):
 	player_hit.emit()
+	if right:
+		animation_player.play("Attack_Right")
+	else:
+		animation_player.play("Attack_Left")

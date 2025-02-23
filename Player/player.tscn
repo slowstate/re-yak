@@ -1832,7 +1832,6 @@ texture = ExtResource("2_2723s")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 0
 collision_mask = 16
 
@@ -1877,101 +1876,109 @@ scale = Vector2(-1, 1)
 [node name="Body" type="Node2D" parent="Animation/CharacterContainer"]
 
 [node name="RightFoot" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(12.1723, 1356.52)
+position = Vector2(-451.078, 1285.56)
+rotation = 0.895311
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("10_8jvha")
 offset = Vector2(-40, -48)
 
 [node name="RightShin" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-75.8268, 1116.52)
+position = Vector2(-421.014, 1031.71)
+rotation = 0.469328
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("11_8pnnb")
 offset = Vector2(32, 144)
 
 [node name="RightThigh" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-179.826, 756.522)
+position = Vector2(-183.996, 741.477)
+rotation = 0.966039
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("12_gvgaw")
 offset = Vector2(56, 184)
 
 [node name="LeftThigh" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-123.826, 788.522)
+position = Vector2(-127.525, 772.638)
+rotation = -1.29166
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("13_820kb")
 offset = Vector2(-89, 152)
 
 [node name="LeftFoot" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-243.825, 1484.51)
+position = Vector2(456.973, 886.678)
+rotation = -1.48375
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("14_l0srd")
 offset = Vector2(-51, 54)
 
 [node name="LeftShin" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-347.824, 1116.52)
+position = Vector2(126.059, 1078.34)
+rotation = -1.82034
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("15_fpfw3")
 offset = Vector2(48, 224)
 
 [node name="RightHand" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-672.703, 457.329)
-rotation = -0.875875
-scale = Vector2(0.999992, 0.999992)
+position = Vector2(27.9343, 363.727)
+rotation = -2.90017
+scale = Vector2(0.999991, 0.999991)
 texture = ExtResource("16_dttci")
 offset = Vector2(-24, 0)
 flip_v = true
 
 [node name="RightArm" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-331.824, 284.527)
-rotation = -0.224195
-scale = Vector2(0.999991, 0.999991)
+position = Vector2(-343.02, 271.797)
+rotation = -2.65369
+scale = Vector2(0.999992, 0.999992)
 texture = ExtResource("17_s0hxt")
 offset = Vector2(-96, 24)
 
 [node name="RightLowerArm" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-508.346, 374.011)
-rotation = -0.42708
-scale = Vector2(0.999989, 0.999989)
+position = Vector2(-150.924, 319.402)
+rotation = -2.85657
+scale = Vector2(0.999986, 0.999986)
 texture = ExtResource("18_yhbdn")
 offset = Vector2(-88, 8)
 
 [node name="Neck" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-331.824, 212.528)
+position = Vector2(-344.094, 199.811)
+rotation = -0.014921
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("19_1pkbk")
 offset = Vector2(38, 25)
 
 [node name="Torso" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-147.826, 756.522)
+position = Vector2(-152, 741)
+rotation = -0.014921
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("20_gm1xa")
 offset = Vector2(-71, -237)
 
 [node name="Head" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-299.824, 172.528)
-rotation = 0.336604
+position = Vector2(-312.695, 159.339)
+rotation = 0.321683
 scale = Vector2(0.99999, 0.99999)
 texture = ExtResource("21_tlwrm")
 offset = Vector2(-80, 24)
 
 [node name="LeftHand" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-608.696, 530.435)
-rotation = 0.0385305
-scale = Vector2(0.999991, 0.999991)
+position = Vector2(160.019, 665.201)
+rotation = -2.88442
+scale = Vector2(0.999989, 0.999989)
 texture = ExtResource("22_c53so")
 offset = Vector2(88, -40)
 flip_v = true
 
 [node name="LeftArm" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-211.825, 324.526)
-rotation = -0.507124
-scale = Vector2(0.99999, 0.99999)
+position = Vector2(-222.438, 310.007)
+rotation = -1.80513
+scale = Vector2(0.999989, 0.999989)
 texture = ExtResource("23_5pddi")
 offset = Vector2(-80, 48)
 
 [node name="LeftLowerArm" type="Sprite2D" parent="Animation/CharacterContainer/Body"]
-position = Vector2(-317.495, 529.663)
-rotation = -0.280952
-scale = Vector2(0.999989, 0.999989)
+position = Vector2(-53.356, 467.036)
+rotation = -2.67144
+scale = Vector2(0.999987, 0.999987)
 texture = ExtResource("24_lxoug")
 offset = Vector2(-128, -32)
 

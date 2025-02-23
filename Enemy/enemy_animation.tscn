@@ -1,37 +1,19 @@
-[gd_scene load_steps=36 format=3 uid="uid://br0283go6r254"]
+[gd_scene load_steps=25 format=3 uid="uid://1cfoqn7o3prp"]
 
-[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_uet12"]
-[ext_resource type="Texture2D" uid="uid://unvetjk5gvi1" path="res://Enemy/Yakuza_Sprite_Ver1.webp" id="2_lt8rw"]
-[ext_resource type="Script" path="res://Common/StateMachine/StateMachine.gd" id="3_l57dc"]
-[ext_resource type="Script" path="res://Enemy/Idle.gd" id="4_d2362"]
-[ext_resource type="Script" path="res://Enemy/Roaming.gd" id="5_qmmml"]
-[ext_resource type="Script" path="res://Enemy/ChasingPlayer.gd" id="6_lkpsf"]
-[ext_resource type="AudioStream" uid="uid://bbnhh1hadmth1" path="res://Audio/Sound_Effects/Enemy Headshot Style C.mp3" id="7_ov2kw"]
-[ext_resource type="AudioStream" uid="uid://bfstopg5y8fbf" path="res://Audio/Sound_Effects/Enemy Hit.mp3" id="8_jv5kc"]
-[ext_resource type="Texture2D" uid="uid://ctpo0dlrifq3v" path="res://Enemy/Animation/L arm.png" id="9_pjka4"]
-[ext_resource type="Texture2D" uid="uid://bfvc7fwj4kxxt" path="res://Enemy/Animation/L forearm.png" id="10_bmeya"]
-[ext_resource type="Texture2D" uid="uid://bn473qb5em1a8" path="res://Enemy/Animation/L hand.png" id="11_2lyfk"]
-[ext_resource type="Texture2D" uid="uid://hoyg027n7qus" path="res://Enemy/Animation/L leg.png" id="12_6buas"]
-[ext_resource type="Texture2D" uid="uid://ccw2hmp3g2jig" path="res://Enemy/Animation/L foot.png" id="13_ioq6u"]
-[ext_resource type="Texture2D" uid="uid://bijw5oxcv4msi" path="res://Enemy/Animation/L shin.png" id="14_ak34u"]
-[ext_resource type="Texture2D" uid="uid://bgvia6olw03un" path="res://Enemy/Animation/R foot.png" id="15_6wwc8"]
-[ext_resource type="Texture2D" uid="uid://ccsu1oef0vlr0" path="res://Enemy/Animation/R shin.png" id="16_0t7rd"]
-[ext_resource type="Texture2D" uid="uid://cnkov28b1ht50" path="res://Enemy/Animation/R leg.png" id="17_tyeu4"]
-[ext_resource type="Texture2D" uid="uid://vw5fmlykj6eu" path="res://Enemy/Animation/Torso.png" id="18_nc35y"]
-[ext_resource type="Texture2D" uid="uid://dfq2dkt2qg604" path="res://Enemy/Animation/Head.png" id="19_wnemq"]
-[ext_resource type="Texture2D" uid="uid://4rbxi7jtwdog" path="res://Enemy/Animation/R arm.png" id="20_hvttp"]
-[ext_resource type="Texture2D" uid="uid://da0i7f7oupb4i" path="res://Enemy/Animation/R forearm.png" id="21_xsf5i"]
-[ext_resource type="Texture2D" uid="uid://omk6ff6cny1x" path="res://Enemy/Animation/R hand.png" id="22_s7dok"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0xms"]
-size = Vector2(67, 4)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_iy2cn"]
-radius = 10.0499
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4t632"]
-radius = 27.0
-height = 90.0
+[ext_resource type="Texture2D" uid="uid://ctpo0dlrifq3v" path="res://Enemy/Animation/L arm.png" id="1_52hx7"]
+[ext_resource type="Texture2D" uid="uid://bfvc7fwj4kxxt" path="res://Enemy/Animation/L forearm.png" id="2_knumf"]
+[ext_resource type="Texture2D" uid="uid://bn473qb5em1a8" path="res://Enemy/Animation/L hand.png" id="3_erej5"]
+[ext_resource type="Texture2D" uid="uid://hoyg027n7qus" path="res://Enemy/Animation/L leg.png" id="4_65u31"]
+[ext_resource type="Texture2D" uid="uid://ccw2hmp3g2jig" path="res://Enemy/Animation/L foot.png" id="5_r8gwu"]
+[ext_resource type="Texture2D" uid="uid://bijw5oxcv4msi" path="res://Enemy/Animation/L shin.png" id="6_p7s4x"]
+[ext_resource type="Texture2D" uid="uid://bgvia6olw03un" path="res://Enemy/Animation/R foot.png" id="7_trvyf"]
+[ext_resource type="Texture2D" uid="uid://ccsu1oef0vlr0" path="res://Enemy/Animation/R shin.png" id="8_k25mt"]
+[ext_resource type="Texture2D" uid="uid://cnkov28b1ht50" path="res://Enemy/Animation/R leg.png" id="9_to6fj"]
+[ext_resource type="Texture2D" uid="uid://vw5fmlykj6eu" path="res://Enemy/Animation/Torso.png" id="10_mrx4c"]
+[ext_resource type="Texture2D" uid="uid://dfq2dkt2qg604" path="res://Enemy/Animation/Head.png" id="11_onwln"]
+[ext_resource type="Texture2D" uid="uid://4rbxi7jtwdog" path="res://Enemy/Animation/R arm.png" id="12_i2cq1"]
+[ext_resource type="Texture2D" uid="uid://da0i7f7oupb4i" path="res://Enemy/Animation/R forearm.png" id="13_ag1ny"]
+[ext_resource type="Texture2D" uid="uid://omk6ff6cny1x" path="res://Enemy/Animation/R hand.png" id="14_cbx7h"]
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_g067m"]
 enabled = false
@@ -794,371 +776,258 @@ _data = {
 "Run_Right": SubResource("Animation_rde51")
 }
 
-[node name="Enemy" type="RigidBody2D"]
-z_index = 1
-collision_layer = 2
-lock_rotation = true
-contact_monitor = true
-max_contacts_reported = 1
-script = ExtResource("1_uet12")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0.500003, 0.500003)
-scale = Vector2(0.301, 0.301)
-texture = ExtResource("2_lt8rw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 51)
-shape = SubResource("RectangleShape2D_q0xms")
-
-[node name="HeadHitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HeadHitbox"]
-position = Vector2(-2, -44)
-shape = SubResource("CircleShape2D_iy2cn")
-
-[node name="Hitbox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
-position = Vector2(-2, 10)
-shape = SubResource("CapsuleShape2D_4t632")
-
-[node name="PlayerDetector1" type="RayCast2D" parent="."]
-target_position = Vector2(650, 0)
-collision_mask = 8
-
-[node name="PlayerDetector2" type="RayCast2D" parent="."]
-target_position = Vector2(630, -50)
-collision_mask = 8
-
-[node name="PlayerDetector3" type="RayCast2D" parent="."]
-target_position = Vector2(610, -100)
-collision_mask = 8
-
-[node name="BackDetector1" type="RayCast2D" parent="."]
-target_position = Vector2(-100, 0)
-collision_mask = 8
-
-[node name="BackDetector2" type="RayCast2D" parent="."]
-target_position = Vector2(-80, -80)
-collision_mask = 8
-
-[node name="AttackDetector1" type="RayCast2D" parent="."]
-target_position = Vector2(50, 0)
-collision_mask = 8
-
-[node name="AttackDetector2" type="RayCast2D" parent="."]
-target_position = Vector2(40, -60)
-collision_mask = 8
-
-[node name="AttackTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="IdleTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="RoamTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="ChasingPlayerTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-
-[node name="EnemyStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
-script = ExtResource("3_l57dc")
-CURRENT_STATE = NodePath("EnemyIdle")
-
-[node name="EnemyIdle" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("4_d2362")
-
-[node name="EnemyRoaming" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("5_qmmml")
-
-[node name="ChasingPlayer" type="Node" parent="EnemyStateMachine"]
-script = ExtResource("6_lkpsf")
-
-[node name="EnemyHeadshotStyleC" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_ov2kw")
-
-[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_jv5kc")
-
-[node name="EnemyAnimation" type="Node2D" parent="."]
+[node name="EnemyAnimation" type="Node2D"]
 scale = Vector2(0.06, 0.06)
 
-[node name="CharacterContainer" type="Node2D" parent="EnemyAnimation"]
+[node name="CharacterContainer" type="Node2D" parent="."]
 
-[node name="Body" type="Node2D" parent="EnemyAnimation/CharacterContainer"]
+[node name="Body" type="Node2D" parent="CharacterContainer"]
 position = Vector2(-45, -390)
 
-[node name="LArm" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(96.1401, -43.4413)
-rotation = 0.00463155
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("9_pjka4")
+[node name="LArm" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(18, -39)
+rotation = -0.197228
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("1_52hx7")
 offset = Vector2(57, 139)
 
-[node name="LForearm" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(189.106, 179.992)
-rotation = -1.56076
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("10_bmeya")
+[node name="LForearm" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(153.875, 161.257)
+rotation = -1.76262
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("2_knumf")
 offset = Vector2(16, 113)
 
-[node name="LHand" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(444.856, 106.554)
-rotation = -1.56076
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("11_2lyfk")
+[node name="LHand" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(389.708, 38.0355)
+rotation = -1.76262
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("3_erej5")
 offset = Vector2(2, 0)
 
-[node name="LLeg" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(18.8372, 359.236)
-rotation = -0.873063
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("12_6buas")
+[node name="LLeg" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(23, 371)
+rotation = 0.00922435
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("4_65u31")
 offset = Vector2(-31, 184)
 
-[node name="LFoot" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(511.933, 1032.81)
-rotation = -1.01269
-scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("13_ioq6u")
+[node name="LFoot" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-183.819, 1179.74)
+rotation = -0.130402
+scale = Vector2(0.999995, 0.999995)
+texture = ExtResource("5_r8gwu")
 offset = Vector2(67, -13)
 
-[node name="LShin" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(262.21, 624.618)
-rotation = -1.01269
-scale = Vector2(0.999997, 0.999997)
-texture = ExtResource("14_ak34u")
+[node name="LShin" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-27.291, 727.551)
+rotation = -0.130402
+scale = Vector2(0.999995, 0.999995)
+texture = ExtResource("6_p7s4x")
 offset = Vector2(-94, 171)
 
-[node name="RFoot" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(-520.999, 494)
-rotation = 2.39523
-scale = Vector2(0.999998, 0.999998)
-texture = ExtResource("15_6wwc8")
+[node name="RFoot" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(259.295, 1202.25)
+rotation = 0.00377442
+scale = Vector2(0.999996, 0.999996)
+texture = ExtResource("7_trvyf")
 offset = Vector2(66, -21)
 
-[node name="RShin" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(-170.214, 734.853)
-rotation = 2.39523
-scale = Vector2(0.999998, 0.999998)
-texture = ExtResource("16_0t7rd")
+[node name="RShin" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(166.863, 786.9)
+rotation = 0.00377442
+scale = Vector2(0.999996, 0.999996)
+texture = ExtResource("8_k25mt")
 offset = Vector2(40, 170)
 
-[node name="RLeg" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(44.1727, 395.043)
-rotation = 0.834979
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("17_tyeu4")
+[node name="RLeg" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(55, 401)
+rotation = -0.00999624
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("9_to6fj")
 offset = Vector2(43, 186)
 
-[node name="Torso" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(35, 385)
-rotation = 0.201859
+[node name="Torso" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(44, 393)
 scale = Vector2(1, 1)
-texture = ExtResource("18_nc35y")
+texture = ExtResource("10_mrx4c")
 offset = Vector2(-28, -273)
 
-[node name="Head" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(141.98, -207.584)
-rotation = 0.201859
+[node name="Head" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(30, -209)
 scale = Vector2(1, 1)
-texture = ExtResource("19_wnemq")
+texture = ExtResource("11_onwln")
 offset = Vector2(39, -31)
 
-[node name="RArm" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(17.2269, -26.9273)
-rotation = 0.828988
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("20_hvttp")
+[node name="RArm" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-56, -7)
+rotation = 0.977384
+scale = Vector2(0.999998, 0.999998)
+texture = ExtResource("12_i2cq1")
 offset = Vector2(-11, 106)
 
-[node name="RForearm" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(-159.646, 101.251)
-rotation = 0.111737
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("21_xsf5i")
+[node name="RForearm" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-249.881, 93.6187)
+rotation = -0.695342
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("13_ag1ny")
 offset = Vector2(4, 123)
 
-[node name="RHand" type="Sprite2D" parent="EnemyAnimation/CharacterContainer/Body"]
-position = Vector2(-186, 372.001)
-rotation = 0.111737
-scale = Vector2(0.999999, 0.999999)
-texture = ExtResource("22_s7dok")
+[node name="RHand" type="Sprite2D" parent="CharacterContainer/Body"]
+position = Vector2(-72.5535, 299.907)
+rotation = -0.695342
+scale = Vector2(0.999997, 0.999997)
+texture = ExtResource("14_cbx7h")
 offset = Vector2(55, 40)
 
-[node name="Bones" type="Node2D" parent="EnemyAnimation/CharacterContainer"]
+[node name="Bones" type="Node2D" parent="CharacterContainer"]
 
-[node name="Skeleton2D" type="Skeleton2D" parent="EnemyAnimation/CharacterContainer/Bones"]
+[node name="Skeleton2D" type="Skeleton2D" parent="CharacterContainer/Bones"]
 modification_stack = SubResource("SkeletonModificationStack2D_77uhd")
 
-[node name="Hip" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D"]
+[node name="Hip" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D"]
 position = Vector2(-18, 41)
 rotation = 0.201859
 rest = Transform2D(1, 0, 0, 1, -1, 3)
 
-[node name="ArmL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="ArmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-26, -432)
 rotation = -0.197228
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.980614, -0.195952, 0.195952, 0.980614, -26, -432)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -26, -432)
 
-[node name="ForearmL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
+[node name="ForearmL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
 position = Vector2(94, 223)
 rotation = -1.56539
-rest = Transform2D(0.00540333, -0.999985, 0.999985, 0.00540333, 94, 223)
+rest = Transform2D(1, 0, 0, 1, 94, 223)
 
-[node name="HandL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
+[node name="HandL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
 position = Vector2(76, 255)
 rest = Transform2D(1, 0, 0, 1, 76, 255)
 auto_calculate_length_and_angle = false
 length = 52.536
 bone_angle = 68.572
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL/HandL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL/HandL"]
 remote_path = NodePath("../../../../../../../Body/LHand")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL/ForearmL"]
 remote_path = NodePath("../../../../../../Body/LForearm")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmL"]
 remote_path = NodePath("../../../../../Body/LArm")
 
-[node name="ArmR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="ArmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-100, -400)
 rotation = 0.977384
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.559193, 0.829038, -0.829038, 0.559193, -100, -400)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -100, -400)
 
-[node name="ForearmR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
+[node name="ForearmR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
 position = Vector2(-25, 217)
 rotation = -1.67273
-scale = Vector2(1, 1)
-rest = Transform2D(-0.101753, -0.99481, 0.99481, -0.101753, -25, 217)
+scale = Vector2(0.999999, 0.999999)
+rest = Transform2D(1, 0, 0, 1, -25, 217)
 
-[node name="HandR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
+[node name="HandR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
 position = Vector2(4, 272)
 rest = Transform2D(1, 0, 0, 1, 4, 272)
 auto_calculate_length_and_angle = false
 length = 113.429
 bone_angle = 94.286
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR/HandR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR/HandR"]
 remote_path = NodePath("../../../../../../../Body/RHand")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR/ForearmR"]
 remote_path = NodePath("../../../../../../Body/RForearm")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/ArmR"]
 remote_path = NodePath("../../../../../Body/RArm")
 
-[node name="LegL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="LegL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-21, -22)
 rotation = -1.07492
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.999957, 0.00922422, -0.00922422, 0.999957, -21, -22)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, -21, -22)
 
-[node name="ShinL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
+[node name="ShinL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
 position = Vector2(-47, 357)
 rotation = -0.139626
-scale = Vector2(0.999998, 0.999998)
-rest = Transform2D(0.990268, -0.139173, 0.139173, 0.990268, -47, 357)
+scale = Vector2(0.999997, 0.999997)
+rest = Transform2D(1, 0, 0, 1, -47, 357)
 
-[node name="FootL" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
+[node name="FootL" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
 position = Vector2(-214, 428)
 rest = Transform2D(1, 0, 0, 1, -214, 428)
 auto_calculate_length_and_angle = false
 length = 137.786
 bone_angle = 17.144
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL/FootL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL/FootL"]
 remote_path = NodePath("../../../../../../../Body/LFoot")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL/ShinL"]
 remote_path = NodePath("../../../../../../Body/LShin")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegL"]
 remote_path = NodePath("../../../../../Body/LLeg")
 
-[node name="LegR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="LegR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(11, 8)
 rotation = 0.633119
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.99995, -0.00999607, 0.00999607, 0.99995, 11, 8)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, 11, 8)
 
-[node name="ShinR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
+[node name="ShinR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
 position = Vector2(108, 387)
 rotation = 1.56025
-scale = Vector2(0.999999, 0.999999)
-rest = Transform2D(0.999905, 0.0137702, -0.0137702, 0.999905, 108, 387)
+scale = Vector2(0.999998, 0.999998)
+rest = Transform2D(1, 0, 0, 1, 108, 387)
 
-[node name="FootR" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
+[node name="FootR" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
 position = Vector2(94, 415)
 rest = Transform2D(1, 0, 0, 1, 94, 415)
 auto_calculate_length_and_angle = false
 length = 137.786
 bone_angle = -8.571
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR/FootR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR/FootR"]
 remote_path = NodePath("../../../../../../../Body/RFoot")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR/ShinR"]
 remote_path = NodePath("../../../../../../Body/RShin")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/LegR"]
 remote_path = NodePath("../../../../../Body/RLeg")
 
-[node name="Head" type="Bone2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="Head" type="Bone2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 position = Vector2(-14, -602)
 rest = Transform2D(1, 0, 0, 1, -14, -602)
 auto_calculate_length_and_angle = false
 length = 113.429
 bone_angle = 8.571
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip/Head"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip/Head"]
 remote_path = NodePath("../../../../../Body/Head")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="EnemyAnimation/CharacterContainer/Bones/Skeleton2D/Hip"]
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterContainer/Bones/Skeleton2D/Hip"]
 remote_path = NodePath("../../../../Body/Torso")
 
-[node name="IK Targets" type="Node2D" parent="EnemyAnimation"]
+[node name="IK Targets" type="Node2D" parent="."]
 
-[node name="FootR Target" type="Node2D" parent="EnemyAnimation/IK Targets"]
+[node name="FootR Target" type="Node2D" parent="IK Targets"]
 position = Vector2(-480, 755)
 rotation = 0.354408
 
-[node name="FootL Target" type="Node2D" parent="EnemyAnimation/IK Targets"]
+[node name="FootL Target" type="Node2D" parent="IK Targets"]
 position = Vector2(38, 816)
 
-[node name="ArmR Target" type="Node2D" parent="EnemyAnimation/IK Targets"]
+[node name="ArmR Target" type="Node2D" parent="IK Targets"]
 position = Vector2(242, -90)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyAnimation"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_7pvq5")
 }
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
-[connection signal="area_entered" from="HeadHitbox" to="." method="_on_head_hitbox_area_entered"]
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
-[connection signal="timeout" from="IdleTimer" to="." method="_on_state_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_idle_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyIdle" method="_on_state_timer_timeout"]
-[connection signal="timeout" from="IdleTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_state_timer_timeout"]
-[connection signal="timeout" from="RoamTimer" to="EnemyStateMachine/EnemyRoaming" method="_on_roam_timer_timeout"]
-[connection signal="timeout" from="ChasingPlayerTimer" to="EnemyStateMachine/ChasingPlayer" method="_on_chasing_player_timer_timeout"]
-[connection signal="moving" from="EnemyStateMachine/EnemyIdle" to="." method="_on_enemy_idle_moving"]
-[connection signal="look_right" from="EnemyStateMachine/EnemyRoaming" to="." method="_on_enemy_roaming_look_right"]
-[connection signal="moving" from="EnemyStateMachine/EnemyRoaming" to="." method="_on_enemy_roaming_moving"]
-[connection signal="attack" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_attack"]
-[connection signal="look_right" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_look_right"]
-[connection signal="moving" from="EnemyStateMachine/ChasingPlayer" to="." method="_on_chasing_player_moving"]
+speed_scale = 1.5
